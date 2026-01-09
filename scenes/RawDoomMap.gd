@@ -1,0 +1,210 @@
+class_name RawDoomMap
+extends Resource
+
+class DoomThing:
+	var x: int
+	var y: int
+	var angleDegrees: int
+	var type: int
+	var flags: int
+
+class DoomLineDef:
+	var v1: int
+	var v2: int
+	var flags: int
+	var special: int
+	var tag: int
+	var sidenum1: int
+	var sidenum2: int
+
+class DoomSideDef:
+	var xOff: int
+	var yOff: int
+	var upperTextureName: String
+	var middleTextureName: String
+	var lowerTextureName: String
+	var sectorFace: int
+
+class DoomSegment:
+	var v1: int
+	var v2: int
+	var angleDegrees: int
+	var lineDefInd: int
+	var lineDefDirection: int
+	var offset: int
+
+class DoomSubSector:
+	var segmentCount: int
+	var segmentNumber: int
+
+class DoomNode:
+	var xPartitionStart: int
+	var yPartitionStart: int
+	var xPartitionChange: int
+	var yPartitionChange: int
+	var boundingBoxR: PackedByteArray
+	var boundingBoxL: PackedByteArray
+	var childRInd: int
+	var childLInd: int
+
+class DoomSector:
+	var floorHeight: int
+	var ceilingHeight: int
+	var floorTextureName: String
+	var ceilingTextureName: String
+	var lightLevel: int
+	var specialType: int
+	var tagNumber: int
+
+var name: String
+var things: Array[DoomThing]
+var lineDefs: Array[DoomLineDef]
+var sideDefs: Array[DoomSideDef]
+var vertexes: Array[Vector2i]
+var segs: Array[DoomSegment]
+var ssectors: Array[DoomSubSector]
+var nodes: Array[DoomNode]
+var sectors: Array[DoomSector]
+
+static func make_things_from_lump(lump: PackedByteArray) -> Array[DoomThing]:
+	var assemble: Array[DoomThing] = []
+	var lumpStream: StreamPeerBuffer = StreamPeerBuffer.new()
+	lumpStream.data_array = lump
+	
+	for _lumpObjectInd: int in range(lump.size()/10):
+		var newObject := DoomThing.new()
+		newObject.x = lumpStream.get_16()
+		newObject.y = lumpStream.get_16()
+		newObject.angleDegrees = lumpStream.get_16()
+		newObject.type = lumpStream.get_16()
+		newObject.flags = lumpStream.get_16()
+		assemble.append(newObject)
+	
+	return assemble
+
+static func make_linedefs_from_lump(lump: PackedByteArray) -> Array[DoomLineDef]:
+	var assemble: Array[DoomLineDef] = []
+	var lumpStream: StreamPeerBuffer = StreamPeerBuffer.new()
+	lumpStream.data_array = lump
+	
+	for _lumpObjectInd: int in range(lump.size()/14):
+		var newObject := DoomLineDef.new()
+		newObject.v1 = lumpStream.get_16()
+		newObject.v2 = lumpStream.get_16()
+		newObject.flags = lumpStream.get_16()
+		newObject.special = lumpStream.get_16()
+		newObject.sidenum1 = lumpStream.get_16()
+		newObject.sidenum2 = lumpStream.get_16()
+		assemble.append(newObject)
+	
+	return assemble
+	
+static func make_sidedefs_from_lump(lump: PackedByteArray) -> Array[DoomSideDef]:
+	var assemble: Array[DoomSideDef] = []
+	var lumpStream: StreamPeerBuffer = StreamPeerBuffer.new()
+	lumpStream.data_array = lump
+	
+	for _lumpObjectInd: int in range(lump.size()/30):
+		var newObject := DoomSideDef.new()
+		newObject.xOff = lumpStream.get_16()
+		newObject.yOff = lumpStream.get_16()
+		newObject.upperTextureName = lumpStream.get_data(8)[1].get_string_from_ascii()
+		newObject.middleTextureName = lumpStream.get_data(8)[1].get_string_from_ascii()
+		newObject.lowerTextureName = lumpStream.get_data(8)[1].get_string_from_ascii()
+		newObject.sectorFace = lumpStream.get_16()
+		assemble.append(newObject)
+	
+	return assemble
+
+static func make_vertexes_from_lump(lump: PackedByteArray) -> Array[Vector2i]:
+	var assemble: Array[Vector2i] = []
+	var lumpStream: StreamPeerBuffer = StreamPeerBuffer.new()
+	lumpStream.data_array = lump
+	
+	for _lumpObjectInd: int in range(lump.size()/4):
+		var newObject := Vector2i(lumpStream.get_16(), lumpStream.get_16())
+		assemble.append(newObject)
+	
+	return assemble
+
+static func make_segments_from_lump(lump: PackedByteArray) -> Array[DoomSegment]:
+	var assemble: Array[DoomSegment] = []
+	var lumpStream: StreamPeerBuffer = StreamPeerBuffer.new()
+	lumpStream.data_array = lump
+	
+	for _lumpObjectInd: int in range(lump.size()/12):
+		var newObject := DoomSegment.new()
+		newObject.v1 = lumpStream.get_16()
+		newObject.v2 = lumpStream.get_16()
+		newObject.angleDegrees = lumpStream.get_16()
+		newObject.lineDefInd = lumpStream.get_16()
+		newObject.lineDefDirection = lumpStream.get_16()
+		newObject.offset = lumpStream.get_16()
+		assemble.append(newObject)
+	
+	return assemble
+
+static func make_ssectors_from_lump(lump: PackedByteArray) -> Array[DoomSubSector]:
+	var assemble: Array[DoomSubSector] = []
+	var lumpStream: StreamPeerBuffer = StreamPeerBuffer.new()
+	lumpStream.data_array = lump
+	
+	for _lumpObjectInd: int in range(lump.size()/4):
+		var newObject := DoomSubSector.new()
+		newObject.segmentCount = lumpStream.get_16()
+		newObject.segmentNumber = lumpStream.get_16()
+		assemble.append(newObject)
+	
+	return assemble
+
+static func make_nodes_from_lump(lump: PackedByteArray) -> Array[DoomNode]:
+	var assemble: Array[DoomNode] = []
+	var lumpStream: StreamPeerBuffer = StreamPeerBuffer.new()
+	lumpStream.data_array = lump
+	
+	for _lumpObjectInd: int in range(lump.size()/28):
+		var newObject := DoomNode.new()
+		newObject.xPartitionStart = lumpStream.get_16()
+		newObject.yPartitionStart = lumpStream.get_16()
+		newObject.xPartitionChange = lumpStream.get_16()
+		newObject.yPartitionChange = lumpStream.get_16()
+		newObject.boundingBoxR = lumpStream.get_data(8)[1]
+		newObject.boundingBoxL = lumpStream.get_data(8)[1]
+		newObject.childRInd = lumpStream.get_16()
+		newObject.childLInd = lumpStream.get_16()
+		assemble.append(newObject)
+	
+	return assemble
+
+static func make_sectors_from_lump(lump: PackedByteArray) -> Array[DoomSector]:
+	var assemble: Array[DoomSector] = []
+	var lumpStream: StreamPeerBuffer = StreamPeerBuffer.new()
+	lumpStream.data_array = lump
+	
+	for _lumpObjectInd: int in range(lump.size()/26):
+		var newObject := DoomSector.new()
+		newObject.floorHeight = lumpStream.get_16()
+		newObject.ceilingHeight = lumpStream.get_16()
+		newObject.floorTextureName = lumpStream.get_data(8)[1].get_string_from_ascii()
+		newObject.ceilingTextureName = lumpStream.get_data(8)[1].get_string_from_ascii()
+		newObject.lightLevel = lumpStream.get_16()
+		newObject.specialType = lumpStream.get_16()
+		newObject.tagNumber = lumpStream.get_16()
+		assemble.append(newObject)
+	
+	return assemble
+
+static func map_from_lumps(mapName: String, lumps: Array[PackedByteArray]) -> RawDoomMap:
+	var assembleMap: RawDoomMap = RawDoomMap.new()
+	assembleMap.name = mapName
+	
+	assembleMap.things = make_things_from_lump(lumps[0])
+	assembleMap.lineDefs = make_linedefs_from_lump(lumps[1])
+	assembleMap.sideDefs = make_sidedefs_from_lump(lumps[2])
+	assembleMap.vertexes = make_vertexes_from_lump(lumps[3])
+	assembleMap.segs = make_segments_from_lump(lumps[4])
+	assembleMap.ssectors = make_ssectors_from_lump(lumps[5])
+	assembleMap.nodes = make_nodes_from_lump(lumps[6])
+	assembleMap.sectors = make_sectors_from_lump(lumps[7])
+	
+	return assembleMap

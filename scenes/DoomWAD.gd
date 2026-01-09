@@ -13,7 +13,8 @@ var file: FileAccess
 
 var signature: String
 var directory: Array[DirectoryEntry]
-var lumps: Array[Lump]
+
+var mapData: Array[RawDoomMap]
 
 func _ready() -> void:
 	initialize_wad()
@@ -46,21 +47,38 @@ func get_wad_directory() -> Array[DirectoryEntry]:
 	
 	var lumpAmount: int = file.get_32()
 	var directoryOffset: int = file.get_32()
-	print(lumpAmount)
-	print(String.num_int64(directoryOffset, 16, true))
 	
 	var directoryEntries: Array[DirectoryEntry]
 	for lumpIndex: int in range(lumpAmount):
 		var newEntry: DirectoryEntry = get_directory_entry(directoryOffset, lumpIndex)
-		if newEntry.size == 0:
-			print(newEntry.name + " : " + str(newEntry.offset) + " : " + str(newEntry.size))
 		directoryEntries.append(newEntry)
 	
 	return directoryEntries
+
+func entry_same(e: DirectoryEntry, levelName: String) -> bool:
+	return e.name==levelName
+
+func get_lump_data(offset: int, size: int) -> PackedByteArray:
+	file.seek(offset)
+	return file.get_buffer(size)
+
+func get_level_lumps(levelName: String) -> Array[PackedByteArray]:
+	var levelLumps: Array[PackedByteArray] = []
+	var levelNameLumpInd: int = directory.find_custom(entry_same.bind(levelName))
+	var levelNameLump: DirectoryEntry = directory[levelNameLumpInd]
+	print(levelNameLump.name + " : " + str(levelNameLump.offset) + " : " + str(levelNameLump.size))
+	
+	for lumpInd: int in range(1, 12):
+		var focusLump: DirectoryEntry = directory[levelNameLumpInd+lumpInd]
+		levelLumps.append(get_lump_data(focusLump.offset, focusLump.size))
+	
+	return levelLumps
+
+func get_map(mapID: String) -> RawDoomMap:
+	return RawDoomMap.map_from_lumps(mapID, get_level_lumps(mapID))
 
 func initialize_wad() -> void:
 	load_wad()
 	signature = get_wad_signature()
 	print(signature)
 	directory = get_wad_directory()
-	
