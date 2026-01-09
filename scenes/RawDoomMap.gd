@@ -55,6 +55,7 @@ class DoomSector:
 	var lightLevel: int
 	var specialType: int
 	var tagNumber: int
+	var associatedLinedefs: Array[int]
 
 var name: String
 var things: Array[DoomThing]
@@ -93,6 +94,7 @@ static func make_linedefs_from_lump(lump: PackedByteArray) -> Array[DoomLineDef]
 		newObject.v2 = lumpStream.get_16()
 		newObject.flags = lumpStream.get_16()
 		newObject.special = lumpStream.get_16()
+		newObject.tag = lumpStream.get_16()
 		newObject.sidenum1 = lumpStream.get_16()
 		newObject.sidenum2 = lumpStream.get_16()
 		assemble.append(newObject)
@@ -194,17 +196,40 @@ static func make_sectors_from_lump(lump: PackedByteArray) -> Array[DoomSector]:
 	
 	return assemble
 
+static func insert_lump_data(map: RawDoomMap, lumps: Array[PackedByteArray]) -> void:
+	map.things = make_things_from_lump(lumps[0])
+	map.lineDefs = make_linedefs_from_lump(lumps[1])
+	map.sideDefs = make_sidedefs_from_lump(lumps[2])
+	map.vertexes = make_vertexes_from_lump(lumps[3])
+	map.segs = make_segments_from_lump(lumps[4])
+	map.ssectors = make_ssectors_from_lump(lumps[5])
+	map.nodes = make_nodes_from_lump(lumps[6])
+	map.sectors = make_sectors_from_lump(lumps[7])
+
+static func post_insert_edits(map: RawDoomMap) -> void:
+	link_sectors_to_linedefs(map)
+
+static func link_sectors_to_linedefs(map: RawDoomMap) -> void:
+	for linedefInd: int in map.lineDefs.size():
+		var linedef: DoomLineDef = map.lineDefs[linedefInd]
+		
+		var assocSector1: int = map.sideDefs[linedef.sidenum1].sectorFace
+		var assocSector2: int = map.sideDefs[linedef.sidenum2].sectorFace
+		var sector1: DoomSector = map.sectors[assocSector1]
+		var sector2: DoomSector = map.sectors[assocSector2]
+		
+		if sector1.associatedLinedefs == null:
+			sector1.associatedLinedefs = []
+		sector1.associatedLinedefs.append(assocSector1)
+		if sector2.associatedLinedefs == null:
+			sector2.associatedLinedefs = []
+		sector2.associatedLinedefs.append(assocSector2)
+
 static func map_from_lumps(mapName: String, lumps: Array[PackedByteArray]) -> RawDoomMap:
 	var assembleMap: RawDoomMap = RawDoomMap.new()
 	assembleMap.name = mapName
 	
-	assembleMap.things = make_things_from_lump(lumps[0])
-	assembleMap.lineDefs = make_linedefs_from_lump(lumps[1])
-	assembleMap.sideDefs = make_sidedefs_from_lump(lumps[2])
-	assembleMap.vertexes = make_vertexes_from_lump(lumps[3])
-	assembleMap.segs = make_segments_from_lump(lumps[4])
-	assembleMap.ssectors = make_ssectors_from_lump(lumps[5])
-	assembleMap.nodes = make_nodes_from_lump(lumps[6])
-	assembleMap.sectors = make_sectors_from_lump(lumps[7])
+	insert_lump_data(assembleMap, lumps)
+	post_insert_edits(assembleMap)
 	
 	return assembleMap

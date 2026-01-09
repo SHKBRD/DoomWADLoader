@@ -23,10 +23,7 @@ func get_level_bounds(points: Array) -> Rect2:
 	
 	var minVec: Vector2 = Vector2(minX, minY)
 	var maxVec: Vector2 = Vector2(maxX, maxY)
-	print(minVec)
-	print(maxVec)
-	print(maxVec-minVec)
-	print()
+	
 	return Rect2i(minVec, maxVec-minVec)
 
 func _process(delta: float) -> void:
@@ -41,14 +38,20 @@ func normalize_point(vertex: Vector2i, bounds: Rect2) -> Vector2:
 func draw_map(doomMap: RawDoomMap) -> void:
 	var vertices: Array = doomMap.vertexes.map(func(v): return v*Vector2i(1,-1))
 	var mapBounds: Rect2 = get_level_bounds(vertices)
-	print(mapBounds)
+	
 	for vertex: Vector2i in vertices:
 		var normalizedPos: Vector2 = normalize_point(vertex, mapBounds)
 		
 		draw_circle(normalizedPos*600, 1, Color.BLUE, true)
 	
+	var linedefs: Array[RawDoomMap.DoomLineDef] = doomMap.lineDefs
+	for linedef: RawDoomMap.DoomLineDef in linedefs:
+		var normalizedV1Pos: Vector2 = normalize_point(vertices[linedef.v1], mapBounds)
+		var normalizedV2Pos: Vector2 = normalize_point(vertices[linedef.v2], mapBounds)
+		draw_line(normalizedV1Pos*600, normalizedV2Pos*600, Color(0.5, 0.5, 0.75, 0.5), 2)
+	
 	var segments: Array[RawDoomMap.DoomSegment] = doomMap.segs
 	for segment: RawDoomMap.DoomSegment in segments:
 		var normalizedV1Pos: Vector2 = normalize_point(vertices[segment.v1], mapBounds)
 		var normalizedV2Pos: Vector2 = normalize_point(vertices[segment.v2], mapBounds)
-		draw_line(normalizedV1Pos*600, normalizedV2Pos*600, Color.WHITE, 2)
+		draw_line(normalizedV1Pos*600, normalizedV2Pos*600, Color(0.75, 0.5, 0.5, 0.5), 2)
