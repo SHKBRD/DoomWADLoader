@@ -19,7 +19,7 @@ var mapData: Array[RawDoomMap]
 func _ready() -> void:
 	initialize_wad()
 
-func load_wad() -> bool:
+func load_wad_from_disk() -> bool:
 	file = FileAccess.open(Globals.wadPath,FileAccess.READ)
 	if file == null:
 		print(FileAccess.get_open_error())
@@ -74,11 +74,11 @@ func get_level_lumps(levelName: String) -> Array[PackedByteArray]:
 	
 	return levelLumps
 
-func get_map(mapID: String) -> RawDoomMap:
-	return RawDoomMap.map_from_lumps(mapID, get_level_lumps(mapID))
-
 func initialize_wad() -> void:
-	load_wad()
+	load_wad_from_disk()
 	signature = get_wad_signature()
 	print(signature)
 	directory = get_wad_directory()
+
+func get_map(mapID: String) -> RawDoomMap:
+	return RawDoomMap.map_from_lumps(mapID, get_level_lumps(mapID))
