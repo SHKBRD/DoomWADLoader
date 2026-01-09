@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://y5bsohcr5xgh"]
+
+[ext_resource type="Script" uid="uid://1km6uflspoeq" path="res://scenes/RawDoomMapScene.gd" id="1_g2j3c"]
+[ext_resource type="Script" uid="uid://cl1xtmf8bmqkr" path="res://scenes/DoomMapMesh.gd" id="2_4p5dh"]
+[ext_resource type="PackedScene" uid="uid://ylirb37tl6si" path="res://scenes/DoomWAD.tscn" id="3_d12dc"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nd1li"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_irbvn"]
+sky_material = SubResource("ProceduralSkyMaterial_nd1li")
+
+[sub_resource type="Environment" id="Environment_e2mbt"]
+background_mode = 2
+sky = SubResource("Sky_irbvn")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_irbvn"]
+
+[node name="DoomWorld" type="Node3D" node_paths=PackedStringArray("doomWAD")]
+script = ExtResource("1_g2j3c")
+doomWAD = NodePath("WADLoader")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_e2mbt")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="MapMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_irbvn")
+script = ExtResource("2_4p5dh")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5586139, 0.8294279, 0, -0.8294279, 0.5586139, 0, 572.1352, 628.83356)
+
+[node name="WADLoader" parent="." instance=ExtResource("3_d12dc")]
