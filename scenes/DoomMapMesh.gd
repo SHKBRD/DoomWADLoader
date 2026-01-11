@@ -116,9 +116,13 @@ func get_map_sector_vertices(map: RawDoomMap) -> Dictionary:
 			for point: Vector2 in polygon:
 				var newVert: Vector3 = Vector3(point.x,sector.ceilingHeight,point.y)
 				ceilingPolygons[ceilingPolygons.size()-1].append(newVert)
-				newVert.y = sector.floorHeight
-				floorPolygons[floorPolygons.size()-1].append(newVert)
+				var floorVert: Vector3 = Vector3(newVert)
+				floorVert.y = sector.floorHeight
+				floorPolygons[floorPolygons.size()-1].append(floorVert)
 				totalFloorVertexSize += 1
+			print(ceilingPolygons)
+			print(floorPolygons)
+			print()
 		
 		sectorsPolygons.append([ceilingPolygons, floorPolygons])
 	
@@ -153,6 +157,9 @@ func load_map(map: RawDoomMap) -> void:
 					var baseVert: Vector3 = sectorsPolygons[sectorInd][i][polygonInd][pointInd]
 					verts.append(baseVert/100.0)
 					normals.append(Vector3.UP*(i*-2+1))
+					if i == (1):
+						pass
+					uvs.append(Vector2(i, 0))
 					#print(verts.size())
 					#print(normals.size())
 					
@@ -165,15 +172,29 @@ func load_map(map: RawDoomMap) -> void:
 			for point: Vector3 in polygon3D:
 				polygon2D.append(Vector2(point.x, point.z))
 			var triInds: PackedInt32Array = Geometry2D.triangulate_polygon(polygon2D)
-			print(triInds)
-			print(totalFloorVertexSize)
+			#print(triInds)
+			#print(totalFloorVertexSize)
+			var ceilTriInds: Array = []
 			for triInd: int in triInds.size():
-				indices.append(triInds[triInd]+vertCount)
+				ceilTriInds.append(triInds[triInd]+vertCount)
+			
+			var vecCeilTriInds: Array = ceilTriInds.map(func(i): return verts[i])
+			print(ceilTriInds)
+			print(vecCeilTriInds)
+			
 			triInds.reverse()
+			var floorTriInds: Array = []
 			for triInd: int in triInds.size():
-				indices.append(triInds[triInd]+totalFloorVertexSize)
+				floorTriInds.append(triInds[triInd]+vertCount+totalFloorVertexSize)
+			
+			var vecFloorTriInds: Array = floorTriInds.map(func(i): return verts[i])
+			print(floorTriInds)
+			print(vecFloorTriInds)
+			
+			indices.append_array(ceilTriInds)
+			indices.append_array(floorTriInds)
 			vertCount+= polygon3D.size()
-	
+			print()
 	
 	#verts = get_heighted_vertices(map)
 	
@@ -186,14 +207,16 @@ func load_map(map: RawDoomMap) -> void:
 	surface_array[Mesh.ARRAY_NORMAL] = normals
 	surface_array[Mesh.ARRAY_INDEX] = indices
 	
+	print(totalFloorVertexSize)
 	print(verts.size())
 	print(uvs.size())
 	print(normals.size())
 	print(indices.size())
-	print(verts)
-	print(uvs)
-	print(normals)
-	print(indices)
+	
+	#print(verts)
+	#print(uvs)
+	#print(normals)
+	#print(indices)
 	# Create mesh surface from mesh array.
 	# No blendshapes, lods, or compression used.
 	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, surface_array)
