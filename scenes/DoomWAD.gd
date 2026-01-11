@@ -68,7 +68,7 @@ func get_level_lumps(levelName: String) -> Array[PackedByteArray]:
 	var levelNameLump: DirectoryEntry = directory[levelNameLumpInd]
 	print(levelNameLump.name + " : " + str(levelNameLump.offset) + " : " + str(levelNameLump.size))
 	
-	for lumpInd: int in range(1, 12):
+	for lumpInd: int in range(1, 11):
 		var focusLump: DirectoryEntry = directory[levelNameLumpInd+lumpInd]
 		levelLumps.append(get_lump_data(focusLump.offset, focusLump.size))
 	

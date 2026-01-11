@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://rrdrku7l1v0v"]
+
+[ext_resource type="ArrayMesh" uid="uid://cvw7jhrgj25e1" path="res://map.tres" id="1_r4me1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8ow82"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_r4me1")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("BoxMesh_8ow82")

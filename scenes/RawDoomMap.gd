@@ -220,10 +220,13 @@ static func link_sectors_to_linedefs(map: RawDoomMap) -> void:
 		
 		if sector1.associatedLinedefs == null:
 			sector1.associatedLinedefs = []
-		sector1.associatedLinedefs.append(assocSector1)
+		if linedefInd not in sector1.associatedLinedefs:
+			sector1.associatedLinedefs.append(linedefInd)
 		if sector2.associatedLinedefs == null:
 			sector2.associatedLinedefs = []
-		sector2.associatedLinedefs.append(assocSector2)
+		if linedefInd not in sector2.associatedLinedefs:
+			sector2.associatedLinedefs.append(linedefInd)
+	
 
 static func map_from_lumps(mapName: String, lumps: Array[PackedByteArray]) -> RawDoomMap:
 	var assembleMap: RawDoomMap = RawDoomMap.new()
