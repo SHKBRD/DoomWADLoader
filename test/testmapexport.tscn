@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://rrdrku7l1v0v"]
 
-[ext_resource type="ArrayMesh" uid="uid://cvw7jhrgj25e1" path="res://map.tres" id="1_r4me1"]
+[ext_resource type="ArrayMesh" uid="uid://btsf6gc7nhuqw" path="res://map.tres" id="1_r4me1"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_8ow82"]
 

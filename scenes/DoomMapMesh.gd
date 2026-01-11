@@ -31,11 +31,17 @@ func get_separate_polygons(map: RawDoomMap, lineInds: Array[int]) -> Array[Packe
 					manipLineInds.remove_at(manipLineIndInd)
 					searchVertexInd = lineDef.v2
 					break
+				elif lineDef.v2 == searchVertexInd:
+					addPolygonInd = lineDef.v2
+					manipLineInds.remove_at(manipLineIndInd)
+					searchVertexInd = lineDef.v1
+					break
 				
 			
 			if addPolygonInd != -1:
 				makePolygon.append(addPolygonInd)
 			elif addPolygonInd == -1:
+				makePolygon.append(searchVertexInd)
 				makePolygon.append(beginVertexInd)
 				separatePolygons.append(makePolygon)
 		
@@ -89,11 +95,13 @@ func get_map_sector_vertices(map: RawDoomMap) -> Dictionary:
 	var totalFloorVertexSize: int = 0
 	
 	for sectorInd: int in map.sectors.size():
+		if sectorInd == 30:
+			pass
 		var sector: RawDoomMap.DoomSector = map.sectors[sectorInd]
 		var sectorPolygons: Array[PackedInt32Array] = get_separate_polygons(map, sector.associatedLinedefs)
 		var sectorPointedPolygons: Array[PackedVector2Array] = []
 		for polygon: PackedInt32Array in sectorPolygons:
-			totalFloorVertexSize += polygon.size()
+			
 			var vectorPolygon: PackedVector2Array = []
 			for pointInd: int in polygon:
 				vectorPolygon.append(map.vertexes[pointInd])
@@ -110,6 +118,7 @@ func get_map_sector_vertices(map: RawDoomMap) -> Dictionary:
 				ceilingPolygons[ceilingPolygons.size()-1].append(newVert)
 				newVert.y = sector.floorHeight
 				floorPolygons[floorPolygons.size()-1].append(newVert)
+				totalFloorVertexSize += 1
 		
 		sectorsPolygons.append([ceilingPolygons, floorPolygons])
 	
@@ -142,7 +151,7 @@ func load_map(map: RawDoomMap) -> void:
 			for polygonInd: int in sectorsPolygons[sectorInd][0].size():
 				for pointInd: int in sectorsPolygons[sectorInd][0][polygonInd].size():
 					var baseVert: Vector3 = sectorsPolygons[sectorInd][i][polygonInd][pointInd]
-					verts.append(baseVert/300.0)
+					verts.append(baseVert/100.0)
 					normals.append(Vector3.UP*(i*-2+1))
 					#print(verts.size())
 					#print(normals.size())

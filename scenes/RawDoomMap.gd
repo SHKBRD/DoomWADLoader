@@ -215,17 +215,20 @@ static func link_sectors_to_linedefs(map: RawDoomMap) -> void:
 		
 		var assocSector1: int = map.sideDefs[linedef.sidenum1].sectorFace
 		var assocSector2: int = map.sideDefs[linedef.sidenum2].sectorFace
+		print(str(linedef.sidenum1) + " : " + str(linedef.sidenum2))
 		var sector1: DoomSector = map.sectors[assocSector1]
 		var sector2: DoomSector = map.sectors[assocSector2]
 		
 		if sector1.associatedLinedefs == null:
 			sector1.associatedLinedefs = []
-		if linedefInd not in sector1.associatedLinedefs:
+		if linedefInd not in sector1.associatedLinedefs and linedef.sidenum1 != -1:
 			sector1.associatedLinedefs.append(linedefInd)
+			print(str(linedefInd) + " is paired with sector " + str(assocSector1))
 		if sector2.associatedLinedefs == null:
 			sector2.associatedLinedefs = []
-		if linedefInd not in sector2.associatedLinedefs:
+		if linedefInd not in sector2.associatedLinedefs and linedef.sidenum2 != -1:
 			sector2.associatedLinedefs.append(linedefInd)
+			print(str(linedefInd) + " is paired with sector " + str(assocSector2))
 	
 
 static func map_from_lumps(mapName: String, lumps: Array[PackedByteArray]) -> RawDoomMap:
