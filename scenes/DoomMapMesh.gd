@@ -47,48 +47,6 @@ func get_separate_polygons(map: RawDoomMap, lineInds: Array[int]) -> Array[Packe
 		
 	return separatePolygons
 
-#func get_triangulated_polygons(map: RawDoomMap, lineInds: Array[int]) -> Array[PackedInt32Array]:
-	#var separatePolygons: Array[PackedInt32Array] = get_separate_polygons(map, lineInds)
-	#var triLists: Array[PackedInt32Array] = []
-	#
-	#for separatePolygon: PackedInt32Array in separatePolygons:
-		#var polygonVectorList: PackedVector2Array = []
-		#for originalPolygonPointInd: int in separatePolygon:
-			#polygonVectorList.append(Vector2(map.vertexes[originalPolygonPointInd]))
-			#
-		#var polygonListTriangleInds: PackedInt32Array = Geometry2D.triangulate_polygon(polygonVectorList)
-		#
-		## conversion from the local polygon vertex indeces to the map's indeces
-		#var mapVertexTriInds: PackedInt32Array = []
-		#for postInd: int in polygonListTriangleInds:
-			#mapVertexTriInds.append(separatePolygon[postInd])
-		#triLists.append(polygonListTriangleInds)
-	#
-	#return triLists
-
-#func get_horizontal_map_planes(map: RawDoomMap, sectorPolys: Array[Array]) -> PackedInt32Array:
-	#var horizontalTris: PackedInt32Array = []
-	#for sectorInd: int in sectorPolys.size():
-		#var focusSectorPolys: Array[PackedInt32Array] = sectorPolys[sectorInd]
-		#for separatePolygon: PackedInt32Array in focusSectorPolys:
-			#var polygonVectorList: PackedVector2Array = []
-			#for originalPolygonPointInd: int in separatePolygon:
-				#polygonVectorList.append(Vector2(map.vertexes[originalPolygonPointInd]))
-				#
-			#var polygonListTriangleInds: PackedInt32Array = Geometry2D.triangulate_polygon(polygonVectorList)
-			#
-			## conversion from the local polygon vertex indeces to the map's indeces
-			#var mapVertexTriInds: PackedInt32Array = []
-			#for postInd: int in polygonListTriangleInds:
-				#mapVertexTriInds.append(separatePolygon[postInd])
-			#horizontalTris.append(polygonListTriangleInds)
-		
-		#var sector: RawDoomMap.DoomSector = map.sectors[sectorInd]
-		#var sectorTriPolygons: Array[PackedInt32Array] = get_triangulated_polygons(map, sector.associatedLinedefs)
-		#for polygon: PackedInt32Array in sectorTriPolygons:
-			#horizontalTris.append_array(polygon)
-	#return horizontalTris
-
 func get_map_sector_vertices(map: RawDoomMap) -> Dictionary:
 	var sectorsPolygons: Array[Array]
 	
@@ -159,7 +117,7 @@ func load_map(map: RawDoomMap) -> void:
 					normals.append(Vector3.UP*(i*-2+1))
 					if i == (1):
 						pass
-					uvs.append(Vector2(i, 0))
+					uvs.append(Vector2(i, i))
 					#print(verts.size())
 					#print(normals.size())
 					
@@ -195,11 +153,6 @@ func load_map(map: RawDoomMap) -> void:
 			indices.append_array(floorTriInds)
 			vertCount+= polygon3D.size()
 			print()
-	
-	#verts = get_heighted_vertices(map)
-	
-	#var horizontalMapPlanes: PackedInt32Array = get_horizontal_map_planes(map)
-	#indices.append_array(horizontalMapPlanes)
 
 	# Assign arrays to surface array.
 	surface_array[Mesh.ARRAY_VERTEX] = verts
@@ -213,10 +166,6 @@ func load_map(map: RawDoomMap) -> void:
 	print(normals.size())
 	print(indices.size())
 	
-	#print(verts)
-	#print(uvs)
-	#print(normals)
-	#print(indices)
 	# Create mesh surface from mesh array.
 	# No blendshapes, lods, or compression used.
 	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, surface_array)
