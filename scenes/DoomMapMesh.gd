@@ -72,7 +72,7 @@ func get_map_sector_vertices(map: RawDoomMap) -> Dictionary:
 			ceilingPolygons.append(PackedVector3Array())
 			floorPolygons.append(PackedVector3Array())
 			for point: Vector2 in polygon:
-				var newVert: Vector3 = Vector3(point.x,sector.ceilingHeight,point.y)
+				var newVert: Vector3 = Vector3(point.x,sector.ceilingHeight,-point.y)
 				ceilingPolygons[ceilingPolygons.size()-1].append(newVert)
 				var floorVert: Vector3 = Vector3(newVert)
 				floorVert.y = sector.floorHeight
