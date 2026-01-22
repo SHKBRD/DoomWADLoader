@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dy1rnvi1wjc8q"]
+
+[ext_resource type="Script" uid="uid://bnsbxyqb6pkyw" path="res://globals/DoomWAD.gd" id="1_rwdxg"]
+
+[node name="DoomWAD" type="Node"]
+script = ExtResource("1_rwdxg")

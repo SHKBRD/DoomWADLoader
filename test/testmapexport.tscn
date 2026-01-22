@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://rrdrku7l1v0v"]
 
-[ext_resource type="ArrayMesh" uid="uid://cui455yjiopas" path="res://map.tres" id="1_r4me1"]
+[ext_resource type="ArrayMesh" path="res://map.tres" id="1_r4me1"]
 [ext_resource type="Shader" uid="uid://d4kul2qcsbpv2" path="res://test/testmapexport.gdshader" id="2_8ow82"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v706r"]

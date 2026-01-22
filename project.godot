@@ -17,5 +17,6 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Globals="*res://globals/globals.gd"
+Instantiate="*res://globals/instantiate.gd"
 DoomWadLoader="*res://globals/DoomWADLoader.gd"
+Globals="*res://globals/globals.gd"

@@ -1,7 +1,8 @@
 extends Node3D
 
-@export var doomWAD: DoomWAD
+var doomWAD: DoomWAD
 @export var mapMesh: DoomMapMesh
 
 func _ready() -> void:
-	mapMesh.load_map(DoomWADLoader.get_map("E1M1"))
+	doomWAD = DoomWAD.get_doom_wad(Globals.wadPath)
+	mapMesh.load_map(doomWAD.get_map("E1M1"))
