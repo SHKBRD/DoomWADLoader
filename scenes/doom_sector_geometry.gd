@@ -40,14 +40,15 @@ func add_polygon_to_floor(tridPoly: PackedVector3Array) -> void:
 		polyPoint.y = floorHeight
 		floorMesh.mesh.surface_set_normal(Vector3.DOWN)
 		floorMesh.mesh.surface_set_uv(Vector2.ZERO)
-		floorMesh.mesh.surface_add_vertex(polyPoint)
+		floorMesh.mesh.surface_add_vertex(polyPoint/100.0)
 
 func build_sector_meshes(sectorGeo: Array[PackedVector2Array]) -> void:
 	ceilMesh.mesh.clear_surfaces()
 	floorMesh.mesh.clear_surfaces()
 	ceilMesh.mesh.surface_begin(Mesh.PRIMITIVE_TRIANGLES)
+	floorMesh.mesh.surface_begin(Mesh.PRIMITIVE_TRIANGLES)
 	for polygonPoints: PackedVector2Array in sectorGeo:
-		var triangulatedPoly: Array[Vector2] = Array(Geometry2D.triangulate_polygon(polygonPoints)).map(func(i): return polygonPoints[i])
+		var triangulatedPoly: Array = Array(Geometry2D.triangulate_polygon(polygonPoints)).map(func(i): return polygonPoints[i])
 		var heightedPoly: PackedVector3Array = PackedVector3Array(triangulatedPoly.map(func(v): return Vector3(v.x, 0, v.y)))
 		add_polygon_to_ceil(heightedPoly)
 		add_polygon_to_floor(heightedPoly)

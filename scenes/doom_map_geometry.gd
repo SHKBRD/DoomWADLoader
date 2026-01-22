@@ -64,10 +64,10 @@ func get_map_sector_vertices(map: RawDoomMap) -> Dictionary:
 		var polygons: Array[PackedVector2Array] = []
 		
 		for polygon: PackedVector2Array in sectorPointedPolygons:
-			polygons.append(PackedVector3Array())
+			polygons.append(PackedVector2Array())
 			for point: Vector2 in polygon:
 				var newVert: Vector2 = Vector2(point.x,-point.y)
-				polygons[polygons.size()-1].append(newVert)
+				polygons.back().append(newVert)
 				totalFloorVertexSize += 1
 		
 		sectorsPolygons.append(polygons)
@@ -81,13 +81,21 @@ func build_map_sectors(map: RawDoomMap) -> void:
 	var sectorVerts: Dictionary = get_map_sector_vertices(map)
 	var sectorsPolygons: Array = sectorVerts["sectorsPolygons"]
 	for sectorInd: int in sectorsPolygons.size():
-		var assembleSector: DoomSectorGeometry = DoomSectorGeometry.new()
+		var assembleSector: DoomSectorGeometry = Instantiate.scene(DoomSectorGeometry)
 		assembleSector.name = "Sector"+str(sectorInd)
 		sectorList.add_child(assembleSector)
 		assembleSector.init_sector(map.sectors[sectorInd], sectorInd, sectorsPolygons[sectorInd])
 
 func initialize_geometry(map: RawDoomMap) -> void:
 	build_map_sectors(map)
+	var newSaveScene: PackedScene = PackedScene.new()
+	newSaveScene.pack(self)
+	var result: Error = ResourceSaver.save(newSaveScene, "res://test/sector_3d_test.tscn")
+	if result == Error.OK:
+		print("saved")
+	else:
+		print(result)
+		print("wrong")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

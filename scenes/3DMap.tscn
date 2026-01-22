@@ -20,9 +20,9 @@ glow_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_irbvn"]
 
-[node name="DoomWorld" type="Node3D" node_paths=PackedStringArray("mapMesh")]
+[node name="DoomWorld" type="Node3D" node_paths=PackedStringArray("mapGeometry")]
 script = ExtResource("1_g2j3c")
-mapMesh = NodePath("MapMesh")
+mapGeometry = NodePath("DoomMapGeometry")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_e2mbt")
