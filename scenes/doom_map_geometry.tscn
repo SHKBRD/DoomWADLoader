@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://h338t5wo85yf" path="res://scenes/doom_map_geometry.gd" id="1_conix"]
 
-[node name="DoomMapGeometry" type="Node3D"]
+[node name="DoomMapGeometry" type="Node3D" node_paths=PackedStringArray("sectorList")]
 script = ExtResource("1_conix")
+sectorList = NodePath("Sectors")
 
 [node name="Sectors" type="Node3D" parent="."]
