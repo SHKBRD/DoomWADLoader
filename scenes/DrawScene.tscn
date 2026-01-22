@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d0wjxl31dbpes"]
 
 [ext_resource type="Script" uid="uid://dkdic2osvcmkw" path="res://scenes/DrawScene.gd" id="1_8b574"]
-[ext_resource type="Script" uid="uid://85c73wo3g8om" path="res://scenes/DoomWAD.gd" id="2_opvnj"]
+[ext_resource type="Script" uid="uid://85c73wo3g8om" path="res://globals/DoomWADLoader.gd" id="2_opvnj"]
 
 [node name="MapDraw" type="Node2D"]
 script = ExtResource("1_8b574")

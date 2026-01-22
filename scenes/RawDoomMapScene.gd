@@ -4,4 +4,4 @@ extends Node3D
 @export var mapMesh: DoomMapMesh
 
 func _ready() -> void:
-	mapMesh.load_map(doomWAD.get_map("E1M1"))
+	mapMesh.load_map(DoomWADLoader.get_map("E1M1"))

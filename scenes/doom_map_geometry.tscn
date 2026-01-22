@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dgj3i54yknkbe"]
+
+[node name="DoomMapGeometry" type="Node3D"]
+
+[node name="Sectors" type="Node3D" parent="."]

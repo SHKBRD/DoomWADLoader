@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://1km6uflspoeq" path="res://scenes/RawDoomMapScene.gd" id="1_g2j3c"]
 [ext_resource type="Script" uid="uid://cl1xtmf8bmqkr" path="res://scenes/DoomMapMesh.gd" id="2_4p5dh"]
-[ext_resource type="PackedScene" uid="uid://ylirb37tl6si" path="res://scenes/DoomWAD.tscn" id="3_d12dc"]
+[ext_resource type="PackedScene" uid="uid://mrrw513gv17s" path="res://scenes/DoomWADLoader.tscn" id="3_d12dc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nd1li"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -39,3 +39,9 @@ script = ExtResource("2_4p5dh")
 transform = Transform3D(1, 0, 0, 0, 0.5586139, 0.8294279, 0, -0.8294279, 0.5586139, 0, 572.1352, 628.83356)
 
 [node name="WADLoader" parent="." instance=ExtResource("3_d12dc")]
+
+[node name="MapMeshes" type="Node3D" parent="."]
+
+[node name="HorizontalSectors" type="Node3D" parent="MapMeshes"]
+
+[node name="Node3D" type="Node3D" parent="MapMeshes"]
