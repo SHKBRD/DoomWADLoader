@@ -83,8 +83,9 @@ func build_map_sectors(map: RawDoomMap) -> void:
 	for sectorInd: int in sectorsPolygons.size():
 		var assembleSector: DoomSectorGeometry = Instantiate.scene(DoomSectorGeometry)
 		assembleSector.name = "Sector"+str(sectorInd)
-		sectorList.add_child(assembleSector)
 		assembleSector.init_sector(map.sectors[sectorInd], sectorInd, sectorsPolygons[sectorInd])
+		sectorList.add_child(assembleSector)
+		
 
 func initialize_geometry(map: RawDoomMap) -> void:
 	build_map_sectors(map)

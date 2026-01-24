@@ -215,6 +215,7 @@ static func link_sectors_to_linedefs(map: RawDoomMap) -> void:
 		
 		var assocSector1: int = map.sideDefs[linedef.sidenum1].sectorFace
 		var assocSector2: int = map.sideDefs[linedef.sidenum2].sectorFace
+		if assocSector1 == assocSector2: continue
 		#print(str(linedef.sidenum1) + " : " + str(linedef.sidenum2))
 		var sector1: DoomSector = map.sectors[assocSector1]
 		var sector2: DoomSector = map.sectors[assocSector2]

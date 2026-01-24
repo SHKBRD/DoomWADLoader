@@ -39,7 +39,7 @@ mesh = SubResource("ArrayMesh_irbvn")
 script = ExtResource("2_4p5dh")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.5586139, 0.8294279, 0, -0.8294279, 0.5586139, 0, 572.1352, 628.83356)
+transform = Transform3D(1, 0, 0, 0, -4.3711392e-08, 1.0000001, 0, -1.0000001, -4.3711392e-08, 0, 50, 0)
 
 [node name="WADLoader" parent="." instance=ExtResource("3_d12dc")]
 

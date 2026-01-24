@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://u8w0n4k431e5"]
 
-[ext_resource type="Script" path="res://scenes/doom_map_geometry.gd" id="1_uu1xd"]
-[ext_resource type="PackedScene" path="res://scenes/doom_sector_geometry.tscn" id="2_bjx4u"]
+[ext_resource type="Script" uid="uid://h338t5wo85yf" path="res://scenes/doom_map_geometry.gd" id="1_uu1xd"]
+[ext_resource type="PackedScene" uid="uid://6gamirf1qb6g" path="res://scenes/doom_sector_geometry.tscn" id="2_bjx4u"]
 
 [node name="DoomMapGeometry" type="Node3D" node_paths=PackedStringArray("sectorList")]
 script = ExtResource("1_uu1xd")
@@ -184,3 +184,229 @@ sectorList = NodePath("Sectors")
 [node name="Sector86" parent="Sectors" instance=ExtResource("2_bjx4u")]
 
 [node name="Sector87" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector88" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector89" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector90" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector91" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector92" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector93" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector94" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector95" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector96" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector97" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector98" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector99" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector100" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector101" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector102" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector103" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector104" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector105" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector106" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector107" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector108" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector109" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector110" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector111" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector112" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector113" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector114" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector115" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector116" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector117" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector118" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector119" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector120" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector121" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector122" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector123" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector124" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector125" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector126" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector127" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector128" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector129" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector130" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector131" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector132" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector133" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector134" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector135" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector136" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector137" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector138" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector139" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector140" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector141" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector142" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector143" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector144" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector145" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector146" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector147" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector148" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector149" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector150" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector151" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector152" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector153" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector154" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector155" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector156" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector157" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector158" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector159" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector160" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector161" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector162" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector163" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector164" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector165" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector166" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector167" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector168" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector169" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector170" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector171" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector172" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector173" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector174" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector175" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector176" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector177" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector178" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector179" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector180" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector181" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector182" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector183" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector184" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector185" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector186" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector187" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector188" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector189" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector190" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector191" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector192" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector193" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector194" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector195" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector196" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector197" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector198" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[node name="Sector199" parent="Sectors" instance=ExtResource("2_bjx4u")]
+
+[editable path="Sectors/Sector0"]
