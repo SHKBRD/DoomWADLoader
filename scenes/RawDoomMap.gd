@@ -32,6 +32,8 @@ class DoomSegment:
 	var lineDefInd: int
 	var lineDefDirection: int
 	var offset: int
+	func get_line(map: RawDoomMap) -> Array:
+		return [map.vertexes[v1], map.vertexes[v2]]
 
 class DoomSubsector:
 	var segmentCount: int
@@ -39,14 +41,33 @@ class DoomSubsector:
 	
 	# TODO: add CW/CCW check
 	func get_polygon(map: RawDoomMap) -> PackedVector2Array:
-		
 		if segmentCount == 1: return PackedVector2Array()
-		var assemblePolygon: Array = []
-		assemblePolygon.append(map.segs[segmentNumber].v2)
 		
-		for i in range(segmentNumber, segmentNumber+segmentCount):
-			var seg: DoomSegment = map.segs[i]
-			assemblePolygon.append(seg.v1)
+		var assemblePolygon: Array = []
+		
+		var segmentSliceArray: Array = map.segs.slice(segmentNumber, segmentNumber+segmentCount)
+		print(segmentSliceArray.map(func(e): return e.get_line(map)))
+		assemblePolygon.append(segmentSliceArray[0].v1)
+		assemblePolygon.append(segmentSliceArray[0].v2)
+		print(assemblePolygon)
+		segmentSliceArray.pop_at(0)
+		var searchVert: int = assemblePolygon.back()
+		while searchVert != -1:
+			var holdVert = searchVert
+			searchVert = -1
+			for segmentInd: int in segmentSliceArray.size():
+				var seg: DoomSegment = map.segs[segmentInd]
+				if seg.v1 == holdVert:
+					searchVert = seg.v2
+					assemblePolygon.append(seg.v2)
+					segmentSliceArray.pop_at(segmentInd)
+					break
+				#elif seg.v2 == holdVert:
+					#searchVert = seg.v1
+					#assemblePolygon.append(seg.v1)
+					#segmentSliceArray.pop_at(segmentInd)
+					#break
+		assemblePolygon.append(assemblePolygon.front())
 		
 		print(assemblePolygon)
 		var returnPoly: PackedVector2Array = PackedVector2Array(assemblePolygon.map(func(e): return map.vertexes[e]))
@@ -172,7 +193,7 @@ static func make_ssectors_from_lump(lump: PackedByteArray) -> Array[DoomSubsecto
 		newObject.segmentCount = lumpStream.get_16()
 		newObject.segmentNumber = lumpStream.get_16()
 		assemble.append(newObject)
-		print(str(_lumpObjectInd) + " : " + str(newObject.segmentCount) + " : " + str(newObject.segmentNumber))
+		#print(str(_lumpObjectInd) + " : " + str(newObject.segmentCount) + " : " + str(newObject.segmentNumber))
 	
 	return assemble
 
