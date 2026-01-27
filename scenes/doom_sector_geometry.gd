@@ -20,14 +20,14 @@ var sectorPoints: PackedVector2Array
 func _ready() -> void:
 	pass # Replace with function body.
 
-func init_sector(rawSector: RawDoomMap.DoomSector, sectorId: int, sectorGeo: Array[PackedVector2Array]) -> void:
+func init_sector(map: RawDoomMap, rawSector: RawDoomMap.DoomSector, sectorId: int) -> void:
 	self.sectorId = sectorId
 	ceilHeight = rawSector.ceilingHeight
 	floorHeight = rawSector.floorHeight
 	ceilTextureName = rawSector.ceilingTextureName
 	floorTextureName = rawSector.floorTextureName
 	lightLevel = rawSector.lightLevel
-	build_sector_meshes(sectorGeo)
+	build_sector_meshes(map)
 
 func add_polygon_to_ceil(tridPoly: PackedVector3Array) -> void:
 	for polyPoint: Vector3 in tridPoly:
@@ -45,14 +45,20 @@ func add_polygon_to_floor(tridPoly: PackedVector3Array) -> void:
 		floorMesh.mesh.surface_set_uv(Vector2.ZERO)
 		floorMesh.mesh.surface_add_vertex(polyPoint/100.0)
 
-func build_sector_meshes(sectorGeo: Array[PackedVector2Array]) -> void:
+func build_sector_meshes(map: RawDoomMap) -> void:
 	ceilMesh.mesh.clear_surfaces()
 	floorMesh.mesh.clear_surfaces()
 	ceilMesh.mesh.surface_begin(Mesh.PRIMITIVE_TRIANGLES)
 	floorMesh.mesh.surface_begin(Mesh.PRIMITIVE_TRIANGLES)
+	
+	var subsectors: Array = map.sectors[sectorId].associatedSubsectors.map(func(i): return map.ssectors[i])
+	
 	print()
 	print("Sector " + str(sectorId))
-	for polygonPoints: PackedVector2Array in sectorGeo:
+	for subsector: RawDoomMap.DoomSubsector in subsectors:
+		var polygonPoints: PackedVector2Array = subsector.get_polygon(map)
+		if polygonPoints.is_empty(): continue
+		print(subsector.segmentCount)
 		print(str(polygonPoints.size()) + str(polygonPoints))
 		
 		var triangulatedPoly: Array = Array(Geometry2D.triangulate_polygon(polygonPoints)).map(func(i): return polygonPoints[i])

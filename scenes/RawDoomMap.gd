@@ -36,6 +36,18 @@ class DoomSegment:
 class DoomSubsector:
 	var segmentCount: int
 	var segmentNumber: int
+	
+	func get_polygon(map: RawDoomMap) -> PackedVector2Array:
+		if segmentCount == 1: return PackedVector2Array()
+		var assemblePolygon: PackedVector2Array = PackedVector2Array()
+		var testSeg: Array = []
+		for i in range(segmentNumber, segmentNumber+segmentCount):
+			var seg: DoomSegment = map.segs[i]
+			testSeg.append([map.vertexes[seg.v1], map.vertexes[seg.v2]])
+			assemblePolygon.append(map.vertexes[seg.v2])
+		assemblePolygon.append(map.vertexes[map.segs[segmentNumber].v2])
+		print(testSeg)
+		return assemblePolygon
 
 class DoomNode:
 	var xPartitionStart: int
@@ -209,6 +221,7 @@ static func insert_lump_data(map: RawDoomMap, lumps: Array[PackedByteArray]) -> 
 
 static func post_insert_edits(map: RawDoomMap) -> void:
 	link_sectors_to_linedefs(map)
+	link_ssectors_to_sectors(map)
 
 static func link_sectors_to_linedefs(map: RawDoomMap) -> void:
 	for linedefInd: int in map.lineDefs.size():
