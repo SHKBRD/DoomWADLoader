@@ -39,16 +39,14 @@ class DoomSubsector:
 	
 	func get_polygon(map: RawDoomMap) -> PackedVector2Array:
 		if segmentCount == 1: return PackedVector2Array()
-		var assemblePolygon: PackedVector2Array = PackedVector2Array()
-		var testSeg: Array = []
-		assemblePolygon.append(map.vertexes[map.segs[segmentNumber].v1])
+		var assemblePolygon: Array = []
+		assemblePolygon.append(map.segs[segmentNumber].v1)
 		for i in range(segmentNumber, segmentNumber+segmentCount):
 			var seg: DoomSegment = map.segs[i]
-			testSeg.append([map.vertexes[seg.v1], map.vertexes[seg.v2]])
-			assemblePolygon.append(map.vertexes[seg.v2])
-		
-		print(testSeg)
-		return assemblePolygon
+			assemblePolygon.append(seg.v2)
+		print(assemblePolygon)
+		var returnPoly: PackedVector2Array = PackedVector2Array(assemblePolygon.map(func(e): return map.vertexes[e]))
+		return returnPoly
 
 class DoomNode:
 	var xPartitionStart: int
@@ -170,6 +168,7 @@ static func make_ssectors_from_lump(lump: PackedByteArray) -> Array[DoomSubsecto
 		newObject.segmentCount = lumpStream.get_16()
 		newObject.segmentNumber = lumpStream.get_16()
 		assemble.append(newObject)
+		print(str(_lumpObjectInd) + " : " + str(newObject.segmentCount) + " : " + str(newObject.segmentNumber))
 	
 	return assemble
 
