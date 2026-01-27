@@ -41,11 +41,12 @@ class DoomSubsector:
 		if segmentCount == 1: return PackedVector2Array()
 		var assemblePolygon: PackedVector2Array = PackedVector2Array()
 		var testSeg: Array = []
+		assemblePolygon.append(map.vertexes[map.segs[segmentNumber].v1])
 		for i in range(segmentNumber, segmentNumber+segmentCount):
 			var seg: DoomSegment = map.segs[i]
 			testSeg.append([map.vertexes[seg.v1], map.vertexes[seg.v2]])
 			assemblePolygon.append(map.vertexes[seg.v2])
-		assemblePolygon.append(map.vertexes[map.segs[segmentNumber].v2])
+		
 		print(testSeg)
 		return assemblePolygon
 
