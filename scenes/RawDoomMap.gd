@@ -37,13 +37,17 @@ class DoomSubsector:
 	var segmentCount: int
 	var segmentNumber: int
 	
+	# TODO: add CW/CCW check
 	func get_polygon(map: RawDoomMap) -> PackedVector2Array:
+		
 		if segmentCount == 1: return PackedVector2Array()
 		var assemblePolygon: Array = []
-		assemblePolygon.append(map.segs[segmentNumber].v1)
+		assemblePolygon.append(map.segs[segmentNumber].v2)
+		
 		for i in range(segmentNumber, segmentNumber+segmentCount):
 			var seg: DoomSegment = map.segs[i]
-			assemblePolygon.append(seg.v2)
+			assemblePolygon.append(seg.v1)
+		
 		print(assemblePolygon)
 		var returnPoly: PackedVector2Array = PackedVector2Array(assemblePolygon.map(func(e): return map.vertexes[e]))
 		return returnPoly

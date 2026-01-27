@@ -51,15 +51,16 @@ func build_sector_meshes(map: RawDoomMap) -> void:
 	ceilMesh.mesh.surface_begin(Mesh.PRIMITIVE_TRIANGLES)
 	floorMesh.mesh.surface_begin(Mesh.PRIMITIVE_TRIANGLES)
 	
-	var subsectors: Array = map.sectors[sectorId].associatedSubsectors.map(func(i): return map.ssectors[i])
+	var subsectors: Array = map.sectors[sectorId].associatedSubsectors
 	
 	print()
 	print("Sector " + str(sectorId))
-	for subsector: RawDoomMap.DoomSubsector in subsectors:
+	for subsectorInd: int in subsectors:
+		var subsector: RawDoomMap.DoomSubsector = map.ssectors[subsectorInd]
 		var polygonPoints: PackedVector2Array = subsector.get_polygon(map)
 		if polygonPoints.is_empty(): continue
 		if polygonPoints[0] != polygonPoints[polygonPoints.size()-1]:
-			print("ERR: " + str(polygonPoints))
+			print("ERR (" + str(subsectorInd) + "): " + str(polygonPoints))
 		var triangulatedPoly: Array = Array(Geometry2D.triangulate_polygon(polygonPoints)).map(func(i): return polygonPoints[i])
 		var heightedPoly: PackedVector3Array = PackedVector3Array(triangulatedPoly.map(func(v): return Vector3(v.x, 0, v.y)))
 		add_polygon_to_ceil(heightedPoly)
