@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://6gamirf1qb6g"]
+[gd_scene format=3 uid="uid://6gamirf1qb6g"]
 
 [ext_resource type="Script" uid="uid://b8fjhqvti6b6o" path="res://scenes/doom_sector_geometry.gd" id="1_uccwk"]
 
@@ -8,17 +8,17 @@
 
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_tbr7o"]
 
-[node name="DoomSectorGeometry" type="Node3D" node_paths=PackedStringArray("ceilMesh", "floorMesh", "wallMesh")]
+[node name="DoomSectorGeometry" type="Node3D" unique_id=556695634 node_paths=PackedStringArray("ceilMesh", "floorMesh", "wallMesh")]
 script = ExtResource("1_uccwk")
 ceilMesh = NodePath("CeilingMesh")
 floorMesh = NodePath("FloorMesh")
 wallMesh = NodePath("WallMesh")
 
-[node name="CeilingMesh" type="MeshInstance3D" parent="."]
+[node name="CeilingMesh" type="MeshInstance3D" parent="." unique_id=493911046]
 mesh = SubResource("ImmediateMesh_uccwk")
 
-[node name="FloorMesh" type="MeshInstance3D" parent="."]
+[node name="FloorMesh" type="MeshInstance3D" parent="." unique_id=2045781148]
 mesh = SubResource("ImmediateMesh_2k5uv")
 
-[node name="WallMesh" type="MeshInstance3D" parent="."]
+[node name="WallMesh" type="MeshInstance3D" parent="." unique_id=183030573]
 mesh = SubResource("ImmediateMesh_tbr7o")
