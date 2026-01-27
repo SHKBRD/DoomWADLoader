@@ -33,7 +33,7 @@ class DoomSegment:
 	var lineDefDirection: int
 	var offset: int
 
-class DoomSubSector:
+class DoomSubsector:
 	var segmentCount: int
 	var segmentNumber: int
 
@@ -56,6 +56,7 @@ class DoomSector:
 	var specialType: int
 	var tagNumber: int
 	var associatedLinedefs: Array[int]
+	var associatedSubsectors
 
 var name: String
 var things: Array[DoomThing]
@@ -63,7 +64,7 @@ var lineDefs: Array[DoomLineDef]
 var sideDefs: Array[DoomSideDef]
 var vertexes: Array[Vector2i]
 var segs: Array[DoomSegment]
-var ssectors: Array[DoomSubSector]
+var ssectors: Array[DoomSubsector]
 var nodes: Array[DoomNode]
 var sectors: Array[DoomSector]
 
@@ -146,13 +147,13 @@ static func make_segments_from_lump(lump: PackedByteArray) -> Array[DoomSegment]
 	
 	return assemble
 
-static func make_ssectors_from_lump(lump: PackedByteArray) -> Array[DoomSubSector]:
-	var assemble: Array[DoomSubSector] = []
+static func make_ssectors_from_lump(lump: PackedByteArray) -> Array[DoomSubsector]:
+	var assemble: Array[DoomSubsector] = []
 	var lumpStream: StreamPeerBuffer = StreamPeerBuffer.new()
 	lumpStream.data_array = lump
 	
 	for _lumpObjectInd: int in range(lump.size()/4):
-		var newObject := DoomSubSector.new()
+		var newObject := DoomSubsector.new()
 		newObject.segmentCount = lumpStream.get_16()
 		newObject.segmentNumber = lumpStream.get_16()
 		assemble.append(newObject)
@@ -230,7 +231,21 @@ static func link_sectors_to_linedefs(map: RawDoomMap) -> void:
 		if linedefInd not in sector2.associatedLinedefs and linedef.sidenum2 != -1:
 			sector2.associatedLinedefs.append(linedefInd)
 			#print(str(linedefInd) + " is paired with sector " + str(assocSector2))
-	
+
+static func link_ssectors_to_sectors(map: RawDoomMap) -> void:
+	for ssectorInd: int in map.ssectors.size():
+		var ssector: DoomSubsector = map.ssectors[ssectorInd]
+		
+		var assocLinedef: DoomLineDef = map.lineDefs[map.segs[ssector.segmentNumber].lineDefInd]
+		var assocSector: DoomSector
+		if map.segs[ssector.segmentNumber].lineDefDirection == 0:
+			assocSector = map.sectors[map.sideDefs[assocLinedef.sidenum1].sectorFace]
+		else:
+			assocSector = map.sectors[map.sideDefs[assocLinedef.sidenum2].sectorFace]
+		
+		if assocSector.associatedSubsectors == null:
+			assocSector.associatedSubsectors = []
+		assocSector.associatedSubsectors.append(ssectorInd)
 
 static func map_from_lumps(mapName: String, lumps: Array[PackedByteArray]) -> RawDoomMap:
 	var assembleMap: RawDoomMap = RawDoomMap.new()
