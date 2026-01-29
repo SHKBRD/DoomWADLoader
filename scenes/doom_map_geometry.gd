@@ -18,15 +18,15 @@ func build_map_sectors(map: RawDoomMap) -> void:
 
 func initialize_geometry(map: RawDoomMap) -> void:
 	build_map_sectors(map)
-	var newSaveScene: PackedScene = PackedScene.new()
-	print(get_child(0).get_child_count())
-	newSaveScene.pack(self)
-	var result: Error = ResourceSaver.save(newSaveScene, "res://test/sector_3d_test.tscn")
-	if result == Error.OK:
-		print("saved")
-	else:
-		print(result)
-		print("wrong")
+	#var newSaveScene: PackedScene = PackedScene.new()
+	#print(get_child(0).get_child_count())
+	#newSaveScene.pack(self)
+	#var result: Error = ResourceSaver.save(newSaveScene, "res://test/sector_3d_test.tscn")
+	#if result == Error.OK:
+		#print("saved")
+	#else:
+		#print(result)
+		#print("wrong")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

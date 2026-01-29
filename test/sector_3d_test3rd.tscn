@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://d2naq3ndwwuae"]
+[gd_scene format=3]
 
-[ext_resource type="Script" uid="uid://h338t5wo85yf" path="res://scenes/doom_map_geometry.gd" id="1_fxns3"]
-[ext_resource type="PackedScene" uid="uid://6gamirf1qb6g" path="res://scenes/doom_sector_geometry.tscn" id="2_py3j8"]
+[ext_resource type="Script" path="res://scenes/doom_map_geometry.gd" id="1_fxns3"]
+[ext_resource type="PackedScene" path="res://scenes/doom_sector_geometry.tscn" id="2_py3j8"]
 
 [node name="DoomMapGeometry" type="Node3D" unique_id=1057680899 node_paths=PackedStringArray("sectorList")]
 script = ExtResource("1_fxns3")
@@ -11,402 +11,400 @@ sectorList = NodePath("Sectors")
 
 [node name="Sector0" parent="Sectors" unique_id=556695634 instance=ExtResource("2_py3j8")]
 
-[node name="Sector1" parent="Sectors" unique_id=731407799 instance=ExtResource("2_py3j8")]
+[node name="Sector1" parent="Sectors" unique_id=275486554 instance=ExtResource("2_py3j8")]
 
-[node name="Sector2" parent="Sectors" unique_id=2144087069 instance=ExtResource("2_py3j8")]
+[node name="Sector2" parent="Sectors" unique_id=1847935459 instance=ExtResource("2_py3j8")]
 
-[node name="Sector3" parent="Sectors" unique_id=656193987 instance=ExtResource("2_py3j8")]
+[node name="Sector3" parent="Sectors" unique_id=2035188683 instance=ExtResource("2_py3j8")]
 
-[node name="Sector4" parent="Sectors" unique_id=625649502 instance=ExtResource("2_py3j8")]
+[node name="Sector4" parent="Sectors" unique_id=327515516 instance=ExtResource("2_py3j8")]
 
-[node name="Sector5" parent="Sectors" unique_id=639252822 instance=ExtResource("2_py3j8")]
+[node name="Sector5" parent="Sectors" unique_id=1904295205 instance=ExtResource("2_py3j8")]
 
-[node name="Sector6" parent="Sectors" unique_id=396428148 instance=ExtResource("2_py3j8")]
+[node name="Sector6" parent="Sectors" unique_id=2132039 instance=ExtResource("2_py3j8")]
 
-[node name="Sector7" parent="Sectors" unique_id=1685832730 instance=ExtResource("2_py3j8")]
+[node name="Sector7" parent="Sectors" unique_id=855103840 instance=ExtResource("2_py3j8")]
 
-[node name="Sector8" parent="Sectors" unique_id=1945702767 instance=ExtResource("2_py3j8")]
+[node name="Sector8" parent="Sectors" unique_id=896822134 instance=ExtResource("2_py3j8")]
 
-[node name="Sector9" parent="Sectors" unique_id=769801427 instance=ExtResource("2_py3j8")]
+[node name="Sector9" parent="Sectors" unique_id=1605038565 instance=ExtResource("2_py3j8")]
 
-[node name="Sector10" parent="Sectors" unique_id=1951489934 instance=ExtResource("2_py3j8")]
+[node name="Sector10" parent="Sectors" unique_id=1054601150 instance=ExtResource("2_py3j8")]
 
-[node name="Sector11" parent="Sectors" unique_id=1781776498 instance=ExtResource("2_py3j8")]
+[node name="Sector11" parent="Sectors" unique_id=187969603 instance=ExtResource("2_py3j8")]
 
-[node name="Sector12" parent="Sectors" unique_id=1867538399 instance=ExtResource("2_py3j8")]
+[node name="Sector12" parent="Sectors" unique_id=605400700 instance=ExtResource("2_py3j8")]
 
-[node name="Sector13" parent="Sectors" unique_id=459751166 instance=ExtResource("2_py3j8")]
+[node name="Sector13" parent="Sectors" unique_id=1578941704 instance=ExtResource("2_py3j8")]
 
-[node name="Sector14" parent="Sectors" unique_id=1066399057 instance=ExtResource("2_py3j8")]
+[node name="Sector14" parent="Sectors" unique_id=992241595 instance=ExtResource("2_py3j8")]
 
-[node name="Sector15" parent="Sectors" unique_id=936086574 instance=ExtResource("2_py3j8")]
+[node name="Sector15" parent="Sectors" unique_id=1005114307 instance=ExtResource("2_py3j8")]
 
-[node name="Sector16" parent="Sectors" unique_id=1425654710 instance=ExtResource("2_py3j8")]
+[node name="Sector16" parent="Sectors" unique_id=1527378542 instance=ExtResource("2_py3j8")]
 
-[node name="Sector17" parent="Sectors" unique_id=1611568862 instance=ExtResource("2_py3j8")]
+[node name="Sector17" parent="Sectors" unique_id=2068037161 instance=ExtResource("2_py3j8")]
 
-[node name="Sector18" parent="Sectors" unique_id=941426796 instance=ExtResource("2_py3j8")]
+[node name="Sector18" parent="Sectors" unique_id=1907865199 instance=ExtResource("2_py3j8")]
 
-[node name="Sector19" parent="Sectors" unique_id=2143346460 instance=ExtResource("2_py3j8")]
+[node name="Sector19" parent="Sectors" unique_id=498192809 instance=ExtResource("2_py3j8")]
 
-[node name="Sector20" parent="Sectors" unique_id=962663581 instance=ExtResource("2_py3j8")]
+[node name="Sector20" parent="Sectors" unique_id=2071951411 instance=ExtResource("2_py3j8")]
 
-[node name="Sector21" parent="Sectors" unique_id=622103590 instance=ExtResource("2_py3j8")]
+[node name="Sector21" parent="Sectors" unique_id=11944744 instance=ExtResource("2_py3j8")]
 
-[node name="Sector22" parent="Sectors" unique_id=350199496 instance=ExtResource("2_py3j8")]
+[node name="Sector22" parent="Sectors" unique_id=696177798 instance=ExtResource("2_py3j8")]
 
-[node name="Sector23" parent="Sectors" unique_id=1905288732 instance=ExtResource("2_py3j8")]
+[node name="Sector23" parent="Sectors" unique_id=1697775681 instance=ExtResource("2_py3j8")]
 
-[node name="Sector24" parent="Sectors" unique_id=670144672 instance=ExtResource("2_py3j8")]
+[node name="Sector24" parent="Sectors" unique_id=1374224765 instance=ExtResource("2_py3j8")]
 
-[node name="Sector25" parent="Sectors" unique_id=1864652715 instance=ExtResource("2_py3j8")]
+[node name="Sector25" parent="Sectors" unique_id=997896574 instance=ExtResource("2_py3j8")]
 
-[node name="Sector26" parent="Sectors" unique_id=281693177 instance=ExtResource("2_py3j8")]
+[node name="Sector26" parent="Sectors" unique_id=1513406933 instance=ExtResource("2_py3j8")]
 
-[node name="Sector27" parent="Sectors" unique_id=1464329093 instance=ExtResource("2_py3j8")]
+[node name="Sector27" parent="Sectors" unique_id=631204585 instance=ExtResource("2_py3j8")]
 
-[node name="Sector28" parent="Sectors" unique_id=1083723093 instance=ExtResource("2_py3j8")]
+[node name="Sector28" parent="Sectors" unique_id=407805670 instance=ExtResource("2_py3j8")]
 
-[node name="Sector29" parent="Sectors" unique_id=1648675319 instance=ExtResource("2_py3j8")]
+[node name="Sector29" parent="Sectors" unique_id=20094712 instance=ExtResource("2_py3j8")]
 
-[node name="Sector30" parent="Sectors" unique_id=537331082 instance=ExtResource("2_py3j8")]
+[node name="Sector30" parent="Sectors" unique_id=583124275 instance=ExtResource("2_py3j8")]
 
-[node name="Sector31" parent="Sectors" unique_id=899462680 instance=ExtResource("2_py3j8")]
+[node name="Sector31" parent="Sectors" unique_id=1654381294 instance=ExtResource("2_py3j8")]
 
-[node name="Sector32" parent="Sectors" unique_id=1260078733 instance=ExtResource("2_py3j8")]
+[node name="Sector32" parent="Sectors" unique_id=309773311 instance=ExtResource("2_py3j8")]
 
-[node name="Sector33" parent="Sectors" unique_id=1769909832 instance=ExtResource("2_py3j8")]
+[node name="Sector33" parent="Sectors" unique_id=692263124 instance=ExtResource("2_py3j8")]
 
-[node name="Sector34" parent="Sectors" unique_id=911036747 instance=ExtResource("2_py3j8")]
+[node name="Sector34" parent="Sectors" unique_id=1369207942 instance=ExtResource("2_py3j8")]
 
-[node name="Sector35" parent="Sectors" unique_id=116221079 instance=ExtResource("2_py3j8")]
+[node name="Sector35" parent="Sectors" unique_id=1002515969 instance=ExtResource("2_py3j8")]
 
-[node name="Sector36" parent="Sectors" unique_id=829692435 instance=ExtResource("2_py3j8")]
+[node name="Sector36" parent="Sectors" unique_id=729379148 instance=ExtResource("2_py3j8")]
 
-[node name="Sector37" parent="Sectors" unique_id=988327788 instance=ExtResource("2_py3j8")]
+[node name="Sector37" parent="Sectors" unique_id=1493078840 instance=ExtResource("2_py3j8")]
 
-[node name="Sector38" parent="Sectors" unique_id=1181261891 instance=ExtResource("2_py3j8")]
+[node name="Sector38" parent="Sectors" unique_id=452455926 instance=ExtResource("2_py3j8")]
 
-[node name="Sector39" parent="Sectors" unique_id=262976799 instance=ExtResource("2_py3j8")]
+[node name="Sector39" parent="Sectors" unique_id=942427112 instance=ExtResource("2_py3j8")]
 
-[node name="Sector40" parent="Sectors" unique_id=1281447423 instance=ExtResource("2_py3j8")]
+[node name="Sector40" parent="Sectors" unique_id=1161864454 instance=ExtResource("2_py3j8")]
 
-[node name="Sector41" parent="Sectors" unique_id=196215773 instance=ExtResource("2_py3j8")]
+[node name="Sector41" parent="Sectors" unique_id=1759721083 instance=ExtResource("2_py3j8")]
 
-[node name="Sector42" parent="Sectors" unique_id=1262947296 instance=ExtResource("2_py3j8")]
+[node name="Sector42" parent="Sectors" unique_id=934375796 instance=ExtResource("2_py3j8")]
 
-[node name="Sector43" parent="Sectors" unique_id=1802996183 instance=ExtResource("2_py3j8")]
+[node name="Sector43" parent="Sectors" unique_id=677636934 instance=ExtResource("2_py3j8")]
 
-[node name="Sector44" parent="Sectors" unique_id=1437794481 instance=ExtResource("2_py3j8")]
+[node name="Sector44" parent="Sectors" unique_id=1030988417 instance=ExtResource("2_py3j8")]
 
-[node name="Sector45" parent="Sectors" unique_id=255937929 instance=ExtResource("2_py3j8")]
+[node name="Sector45" parent="Sectors" unique_id=1455374326 instance=ExtResource("2_py3j8")]
 
-[node name="Sector46" parent="Sectors" unique_id=704203331 instance=ExtResource("2_py3j8")]
+[node name="Sector46" parent="Sectors" unique_id=783477321 instance=ExtResource("2_py3j8")]
 
-[node name="Sector47" parent="Sectors" unique_id=1261304320 instance=ExtResource("2_py3j8")]
+[node name="Sector47" parent="Sectors" unique_id=1062143036 instance=ExtResource("2_py3j8")]
 
-[node name="Sector48" parent="Sectors" unique_id=843356633 instance=ExtResource("2_py3j8")]
+[node name="Sector48" parent="Sectors" unique_id=716662626 instance=ExtResource("2_py3j8")]
 
-[node name="Sector49" parent="Sectors" unique_id=1533845561 instance=ExtResource("2_py3j8")]
+[node name="Sector49" parent="Sectors" unique_id=1588786244 instance=ExtResource("2_py3j8")]
 
-[node name="Sector50" parent="Sectors" unique_id=1982896283 instance=ExtResource("2_py3j8")]
+[node name="Sector50" parent="Sectors" unique_id=224048375 instance=ExtResource("2_py3j8")]
 
-[node name="Sector51" parent="Sectors" unique_id=408145468 instance=ExtResource("2_py3j8")]
+[node name="Sector51" parent="Sectors" unique_id=2118906685 instance=ExtResource("2_py3j8")]
 
-[node name="Sector52" parent="Sectors" unique_id=1960560237 instance=ExtResource("2_py3j8")]
+[node name="Sector52" parent="Sectors" unique_id=1982644413 instance=ExtResource("2_py3j8")]
 
-[node name="Sector53" parent="Sectors" unique_id=1818033150 instance=ExtResource("2_py3j8")]
+[node name="Sector53" parent="Sectors" unique_id=1078481333 instance=ExtResource("2_py3j8")]
 
-[node name="Sector54" parent="Sectors" unique_id=1419454389 instance=ExtResource("2_py3j8")]
+[node name="Sector54" parent="Sectors" unique_id=75936563 instance=ExtResource("2_py3j8")]
 
-[node name="Sector55" parent="Sectors" unique_id=732950760 instance=ExtResource("2_py3j8")]
+[node name="Sector55" parent="Sectors" unique_id=1066117178 instance=ExtResource("2_py3j8")]
 
-[node name="Sector56" parent="Sectors" unique_id=1078576115 instance=ExtResource("2_py3j8")]
+[node name="Sector56" parent="Sectors" unique_id=136295042 instance=ExtResource("2_py3j8")]
 
-[node name="Sector57" parent="Sectors" unique_id=968682377 instance=ExtResource("2_py3j8")]
+[node name="Sector57" parent="Sectors" unique_id=1390685316 instance=ExtResource("2_py3j8")]
 
-[node name="Sector58" parent="Sectors" unique_id=632582381 instance=ExtResource("2_py3j8")]
+[node name="Sector58" parent="Sectors" unique_id=99283490 instance=ExtResource("2_py3j8")]
 
-[node name="Sector59" parent="Sectors" unique_id=921872652 instance=ExtResource("2_py3j8")]
+[node name="Sector59" parent="Sectors" unique_id=1019927209 instance=ExtResource("2_py3j8")]
 
-[node name="Sector60" parent="Sectors" unique_id=1386059285 instance=ExtResource("2_py3j8")]
+[node name="Sector60" parent="Sectors" unique_id=1336545445 instance=ExtResource("2_py3j8")]
 
-[node name="Sector61" parent="Sectors" unique_id=1797950031 instance=ExtResource("2_py3j8")]
+[node name="Sector61" parent="Sectors" unique_id=1677385271 instance=ExtResource("2_py3j8")]
 
-[node name="Sector62" parent="Sectors" unique_id=1366748177 instance=ExtResource("2_py3j8")]
+[node name="Sector62" parent="Sectors" unique_id=943444969 instance=ExtResource("2_py3j8")]
 
-[node name="Sector63" parent="Sectors" unique_id=1137924388 instance=ExtResource("2_py3j8")]
+[node name="Sector63" parent="Sectors" unique_id=1462961818 instance=ExtResource("2_py3j8")]
 
-[node name="Sector64" parent="Sectors" unique_id=1530326627 instance=ExtResource("2_py3j8")]
+[node name="Sector64" parent="Sectors" unique_id=860827996 instance=ExtResource("2_py3j8")]
 
-[node name="Sector65" parent="Sectors" unique_id=1211891 instance=ExtResource("2_py3j8")]
+[node name="Sector65" parent="Sectors" unique_id=1013028261 instance=ExtResource("2_py3j8")]
 
-[node name="Sector66" parent="Sectors" unique_id=339958759 instance=ExtResource("2_py3j8")]
+[node name="Sector66" parent="Sectors" unique_id=1037825683 instance=ExtResource("2_py3j8")]
 
-[node name="Sector67" parent="Sectors" unique_id=1065373055 instance=ExtResource("2_py3j8")]
+[node name="Sector67" parent="Sectors" unique_id=27284654 instance=ExtResource("2_py3j8")]
 
-[node name="Sector68" parent="Sectors" unique_id=1597114727 instance=ExtResource("2_py3j8")]
+[node name="Sector68" parent="Sectors" unique_id=437065453 instance=ExtResource("2_py3j8")]
 
-[node name="Sector69" parent="Sectors" unique_id=909745042 instance=ExtResource("2_py3j8")]
+[node name="Sector69" parent="Sectors" unique_id=544047918 instance=ExtResource("2_py3j8")]
 
-[node name="Sector70" parent="Sectors" unique_id=1955178868 instance=ExtResource("2_py3j8")]
+[node name="Sector70" parent="Sectors" unique_id=1893236282 instance=ExtResource("2_py3j8")]
 
-[node name="Sector71" parent="Sectors" unique_id=350905908 instance=ExtResource("2_py3j8")]
+[node name="Sector71" parent="Sectors" unique_id=1142855155 instance=ExtResource("2_py3j8")]
 
-[node name="Sector72" parent="Sectors" unique_id=177109908 instance=ExtResource("2_py3j8")]
+[node name="Sector72" parent="Sectors" unique_id=1687139007 instance=ExtResource("2_py3j8")]
 
-[node name="Sector73" parent="Sectors" unique_id=1988959557 instance=ExtResource("2_py3j8")]
+[node name="Sector73" parent="Sectors" unique_id=1722803707 instance=ExtResource("2_py3j8")]
 
-[node name="Sector74" parent="Sectors" unique_id=349992536 instance=ExtResource("2_py3j8")]
+[node name="Sector74" parent="Sectors" unique_id=1640157879 instance=ExtResource("2_py3j8")]
 
-[node name="Sector75" parent="Sectors" unique_id=1482371556 instance=ExtResource("2_py3j8")]
+[node name="Sector75" parent="Sectors" unique_id=648086011 instance=ExtResource("2_py3j8")]
 
-[node name="Sector76" parent="Sectors" unique_id=48948287 instance=ExtResource("2_py3j8")]
+[node name="Sector76" parent="Sectors" unique_id=511287471 instance=ExtResource("2_py3j8")]
 
-[node name="Sector77" parent="Sectors" unique_id=1638643228 instance=ExtResource("2_py3j8")]
+[node name="Sector77" parent="Sectors" unique_id=798091197 instance=ExtResource("2_py3j8")]
 
-[node name="Sector78" parent="Sectors" unique_id=950438421 instance=ExtResource("2_py3j8")]
+[node name="Sector78" parent="Sectors" unique_id=2071228239 instance=ExtResource("2_py3j8")]
 
-[node name="Sector79" parent="Sectors" unique_id=1550023592 instance=ExtResource("2_py3j8")]
+[node name="Sector79" parent="Sectors" unique_id=1897614027 instance=ExtResource("2_py3j8")]
 
-[node name="Sector80" parent="Sectors" unique_id=2049940018 instance=ExtResource("2_py3j8")]
+[node name="Sector80" parent="Sectors" unique_id=1317320643 instance=ExtResource("2_py3j8")]
 
-[node name="Sector81" parent="Sectors" unique_id=1517130086 instance=ExtResource("2_py3j8")]
+[node name="Sector81" parent="Sectors" unique_id=1859081511 instance=ExtResource("2_py3j8")]
 
-[node name="Sector82" parent="Sectors" unique_id=636280308 instance=ExtResource("2_py3j8")]
+[node name="Sector82" parent="Sectors" unique_id=743869202 instance=ExtResource("2_py3j8")]
 
-[node name="Sector83" parent="Sectors" unique_id=576044576 instance=ExtResource("2_py3j8")]
+[node name="Sector83" parent="Sectors" unique_id=236441821 instance=ExtResource("2_py3j8")]
 
-[node name="Sector84" parent="Sectors" unique_id=41028925 instance=ExtResource("2_py3j8")]
+[node name="Sector84" parent="Sectors" unique_id=278473175 instance=ExtResource("2_py3j8")]
 
-[node name="Sector85" parent="Sectors" unique_id=1726150199 instance=ExtResource("2_py3j8")]
+[node name="Sector85" parent="Sectors" unique_id=222870847 instance=ExtResource("2_py3j8")]
 
-[node name="Sector86" parent="Sectors" unique_id=1255900149 instance=ExtResource("2_py3j8")]
+[node name="Sector86" parent="Sectors" unique_id=334082005 instance=ExtResource("2_py3j8")]
 
-[node name="Sector87" parent="Sectors" unique_id=1913181236 instance=ExtResource("2_py3j8")]
+[node name="Sector87" parent="Sectors" unique_id=36310893 instance=ExtResource("2_py3j8")]
 
-[node name="Sector88" parent="Sectors" unique_id=691654424 instance=ExtResource("2_py3j8")]
+[node name="Sector88" parent="Sectors" unique_id=2030005305 instance=ExtResource("2_py3j8")]
 
-[node name="Sector89" parent="Sectors" unique_id=1884096251 instance=ExtResource("2_py3j8")]
+[node name="Sector89" parent="Sectors" unique_id=231871780 instance=ExtResource("2_py3j8")]
 
-[node name="Sector90" parent="Sectors" unique_id=2007647321 instance=ExtResource("2_py3j8")]
+[node name="Sector90" parent="Sectors" unique_id=749040695 instance=ExtResource("2_py3j8")]
 
-[node name="Sector91" parent="Sectors" unique_id=1607248861 instance=ExtResource("2_py3j8")]
+[node name="Sector91" parent="Sectors" unique_id=1633912616 instance=ExtResource("2_py3j8")]
 
-[node name="Sector92" parent="Sectors" unique_id=1274830966 instance=ExtResource("2_py3j8")]
+[node name="Sector92" parent="Sectors" unique_id=1897628381 instance=ExtResource("2_py3j8")]
 
-[node name="Sector93" parent="Sectors" unique_id=760524788 instance=ExtResource("2_py3j8")]
+[node name="Sector93" parent="Sectors" unique_id=2066990728 instance=ExtResource("2_py3j8")]
 
-[node name="Sector94" parent="Sectors" unique_id=1312337466 instance=ExtResource("2_py3j8")]
+[node name="Sector94" parent="Sectors" unique_id=1860994564 instance=ExtResource("2_py3j8")]
 
-[node name="Sector95" parent="Sectors" unique_id=1530038223 instance=ExtResource("2_py3j8")]
+[node name="Sector95" parent="Sectors" unique_id=46215263 instance=ExtResource("2_py3j8")]
 
-[node name="Sector96" parent="Sectors" unique_id=897766976 instance=ExtResource("2_py3j8")]
+[node name="Sector96" parent="Sectors" unique_id=277442976 instance=ExtResource("2_py3j8")]
 
-[node name="Sector97" parent="Sectors" unique_id=1904924632 instance=ExtResource("2_py3j8")]
+[node name="Sector97" parent="Sectors" unique_id=44066509 instance=ExtResource("2_py3j8")]
 
-[node name="Sector98" parent="Sectors" unique_id=1178152521 instance=ExtResource("2_py3j8")]
+[node name="Sector98" parent="Sectors" unique_id=1850813321 instance=ExtResource("2_py3j8")]
 
-[node name="Sector99" parent="Sectors" unique_id=441107464 instance=ExtResource("2_py3j8")]
+[node name="Sector99" parent="Sectors" unique_id=1973998602 instance=ExtResource("2_py3j8")]
 
-[node name="Sector100" parent="Sectors" unique_id=1575446207 instance=ExtResource("2_py3j8")]
+[node name="Sector100" parent="Sectors" unique_id=606858505 instance=ExtResource("2_py3j8")]
 
-[node name="Sector101" parent="Sectors" unique_id=2023402521 instance=ExtResource("2_py3j8")]
+[node name="Sector101" parent="Sectors" unique_id=1623544861 instance=ExtResource("2_py3j8")]
 
-[node name="Sector102" parent="Sectors" unique_id=1549200568 instance=ExtResource("2_py3j8")]
+[node name="Sector102" parent="Sectors" unique_id=1528377428 instance=ExtResource("2_py3j8")]
 
-[node name="Sector103" parent="Sectors" unique_id=1751106458 instance=ExtResource("2_py3j8")]
+[node name="Sector103" parent="Sectors" unique_id=1517893729 instance=ExtResource("2_py3j8")]
 
-[node name="Sector104" parent="Sectors" unique_id=299943147 instance=ExtResource("2_py3j8")]
+[node name="Sector104" parent="Sectors" unique_id=495271572 instance=ExtResource("2_py3j8")]
 
-[node name="Sector105" parent="Sectors" unique_id=549027222 instance=ExtResource("2_py3j8")]
+[node name="Sector105" parent="Sectors" unique_id=302614425 instance=ExtResource("2_py3j8")]
 
-[node name="Sector106" parent="Sectors" unique_id=774454313 instance=ExtResource("2_py3j8")]
+[node name="Sector106" parent="Sectors" unique_id=1665831059 instance=ExtResource("2_py3j8")]
 
-[node name="Sector107" parent="Sectors" unique_id=1885502410 instance=ExtResource("2_py3j8")]
+[node name="Sector107" parent="Sectors" unique_id=933872517 instance=ExtResource("2_py3j8")]
 
-[node name="Sector108" parent="Sectors" unique_id=1832234634 instance=ExtResource("2_py3j8")]
+[node name="Sector108" parent="Sectors" unique_id=313081532 instance=ExtResource("2_py3j8")]
 
-[node name="Sector109" parent="Sectors" unique_id=170877974 instance=ExtResource("2_py3j8")]
+[node name="Sector109" parent="Sectors" unique_id=1608259813 instance=ExtResource("2_py3j8")]
 
-[node name="Sector110" parent="Sectors" unique_id=357479120 instance=ExtResource("2_py3j8")]
+[node name="Sector110" parent="Sectors" unique_id=1423061397 instance=ExtResource("2_py3j8")]
 
-[node name="Sector111" parent="Sectors" unique_id=1460027951 instance=ExtResource("2_py3j8")]
+[node name="Sector111" parent="Sectors" unique_id=1656164248 instance=ExtResource("2_py3j8")]
 
-[node name="Sector112" parent="Sectors" unique_id=1598785546 instance=ExtResource("2_py3j8")]
+[node name="Sector112" parent="Sectors" unique_id=924299020 instance=ExtResource("2_py3j8")]
 
-[node name="Sector113" parent="Sectors" unique_id=1569734624 instance=ExtResource("2_py3j8")]
+[node name="Sector113" parent="Sectors" unique_id=166470907 instance=ExtResource("2_py3j8")]
 
-[node name="Sector114" parent="Sectors" unique_id=1051220919 instance=ExtResource("2_py3j8")]
+[node name="Sector114" parent="Sectors" unique_id=1283114067 instance=ExtResource("2_py3j8")]
 
-[node name="Sector115" parent="Sectors" unique_id=76629053 instance=ExtResource("2_py3j8")]
+[node name="Sector115" parent="Sectors" unique_id=963080189 instance=ExtResource("2_py3j8")]
 
-[node name="Sector116" parent="Sectors" unique_id=1623440679 instance=ExtResource("2_py3j8")]
+[node name="Sector116" parent="Sectors" unique_id=2124206148 instance=ExtResource("2_py3j8")]
 
-[node name="Sector117" parent="Sectors" unique_id=863782911 instance=ExtResource("2_py3j8")]
+[node name="Sector117" parent="Sectors" unique_id=1625433701 instance=ExtResource("2_py3j8")]
 
-[node name="Sector118" parent="Sectors" unique_id=936755051 instance=ExtResource("2_py3j8")]
+[node name="Sector118" parent="Sectors" unique_id=399680083 instance=ExtResource("2_py3j8")]
 
-[node name="Sector119" parent="Sectors" unique_id=300883767 instance=ExtResource("2_py3j8")]
+[node name="Sector119" parent="Sectors" unique_id=1538873394 instance=ExtResource("2_py3j8")]
 
-[node name="Sector120" parent="Sectors" unique_id=969019221 instance=ExtResource("2_py3j8")]
+[node name="Sector120" parent="Sectors" unique_id=941772929 instance=ExtResource("2_py3j8")]
 
-[node name="Sector121" parent="Sectors" unique_id=555851620 instance=ExtResource("2_py3j8")]
+[node name="Sector121" parent="Sectors" unique_id=1977322400 instance=ExtResource("2_py3j8")]
 
-[node name="Sector122" parent="Sectors" unique_id=1948859462 instance=ExtResource("2_py3j8")]
+[node name="Sector122" parent="Sectors" unique_id=1678333855 instance=ExtResource("2_py3j8")]
 
-[node name="Sector123" parent="Sectors" unique_id=1124126400 instance=ExtResource("2_py3j8")]
+[node name="Sector123" parent="Sectors" unique_id=322959507 instance=ExtResource("2_py3j8")]
 
-[node name="Sector124" parent="Sectors" unique_id=529628037 instance=ExtResource("2_py3j8")]
+[node name="Sector124" parent="Sectors" unique_id=743284547 instance=ExtResource("2_py3j8")]
 
-[node name="Sector125" parent="Sectors" unique_id=1002971135 instance=ExtResource("2_py3j8")]
+[node name="Sector125" parent="Sectors" unique_id=389652932 instance=ExtResource("2_py3j8")]
 
-[node name="Sector126" parent="Sectors" unique_id=1404673702 instance=ExtResource("2_py3j8")]
+[node name="Sector126" parent="Sectors" unique_id=672649377 instance=ExtResource("2_py3j8")]
 
-[node name="Sector127" parent="Sectors" unique_id=79222288 instance=ExtResource("2_py3j8")]
+[node name="Sector127" parent="Sectors" unique_id=1647378137 instance=ExtResource("2_py3j8")]
 
-[node name="Sector128" parent="Sectors" unique_id=1525846399 instance=ExtResource("2_py3j8")]
+[node name="Sector128" parent="Sectors" unique_id=430537383 instance=ExtResource("2_py3j8")]
 
-[node name="Sector129" parent="Sectors" unique_id=918318992 instance=ExtResource("2_py3j8")]
+[node name="Sector129" parent="Sectors" unique_id=1124584748 instance=ExtResource("2_py3j8")]
 
-[node name="Sector130" parent="Sectors" unique_id=668357936 instance=ExtResource("2_py3j8")]
+[node name="Sector130" parent="Sectors" unique_id=348454794 instance=ExtResource("2_py3j8")]
 
-[node name="Sector131" parent="Sectors" unique_id=1806568522 instance=ExtResource("2_py3j8")]
+[node name="Sector131" parent="Sectors" unique_id=439073913 instance=ExtResource("2_py3j8")]
 
-[node name="Sector132" parent="Sectors" unique_id=1016405229 instance=ExtResource("2_py3j8")]
+[node name="Sector132" parent="Sectors" unique_id=989533573 instance=ExtResource("2_py3j8")]
 
-[node name="Sector133" parent="Sectors" unique_id=844320726 instance=ExtResource("2_py3j8")]
+[node name="Sector133" parent="Sectors" unique_id=1121705657 instance=ExtResource("2_py3j8")]
 
-[node name="Sector134" parent="Sectors" unique_id=69811676 instance=ExtResource("2_py3j8")]
+[node name="Sector134" parent="Sectors" unique_id=45601744 instance=ExtResource("2_py3j8")]
 
-[node name="Sector135" parent="Sectors" unique_id=1804312752 instance=ExtResource("2_py3j8")]
+[node name="Sector135" parent="Sectors" unique_id=1124884845 instance=ExtResource("2_py3j8")]
 
-[node name="Sector136" parent="Sectors" unique_id=729295023 instance=ExtResource("2_py3j8")]
+[node name="Sector136" parent="Sectors" unique_id=464042780 instance=ExtResource("2_py3j8")]
 
-[node name="Sector137" parent="Sectors" unique_id=1010473892 instance=ExtResource("2_py3j8")]
+[node name="Sector137" parent="Sectors" unique_id=1488426283 instance=ExtResource("2_py3j8")]
 
-[node name="Sector138" parent="Sectors" unique_id=348987086 instance=ExtResource("2_py3j8")]
+[node name="Sector138" parent="Sectors" unique_id=18081250 instance=ExtResource("2_py3j8")]
 
-[node name="Sector139" parent="Sectors" unique_id=1740226297 instance=ExtResource("2_py3j8")]
+[node name="Sector139" parent="Sectors" unique_id=1429842190 instance=ExtResource("2_py3j8")]
 
-[node name="Sector140" parent="Sectors" unique_id=1440661127 instance=ExtResource("2_py3j8")]
+[node name="Sector140" parent="Sectors" unique_id=1309118466 instance=ExtResource("2_py3j8")]
 
-[node name="Sector141" parent="Sectors" unique_id=1047208494 instance=ExtResource("2_py3j8")]
+[node name="Sector141" parent="Sectors" unique_id=17247903 instance=ExtResource("2_py3j8")]
 
-[node name="Sector142" parent="Sectors" unique_id=1292434450 instance=ExtResource("2_py3j8")]
+[node name="Sector142" parent="Sectors" unique_id=358588854 instance=ExtResource("2_py3j8")]
 
-[node name="Sector143" parent="Sectors" unique_id=907745604 instance=ExtResource("2_py3j8")]
+[node name="Sector143" parent="Sectors" unique_id=1794458920 instance=ExtResource("2_py3j8")]
 
-[node name="Sector144" parent="Sectors" unique_id=1029386873 instance=ExtResource("2_py3j8")]
+[node name="Sector144" parent="Sectors" unique_id=430462384 instance=ExtResource("2_py3j8")]
 
-[node name="Sector145" parent="Sectors" unique_id=1870560410 instance=ExtResource("2_py3j8")]
+[node name="Sector145" parent="Sectors" unique_id=924945778 instance=ExtResource("2_py3j8")]
 
-[node name="Sector146" parent="Sectors" unique_id=1657740156 instance=ExtResource("2_py3j8")]
+[node name="Sector146" parent="Sectors" unique_id=1278388506 instance=ExtResource("2_py3j8")]
 
-[node name="Sector147" parent="Sectors" unique_id=1567940129 instance=ExtResource("2_py3j8")]
+[node name="Sector147" parent="Sectors" unique_id=1413603774 instance=ExtResource("2_py3j8")]
 
-[node name="Sector148" parent="Sectors" unique_id=1484537163 instance=ExtResource("2_py3j8")]
+[node name="Sector148" parent="Sectors" unique_id=608758378 instance=ExtResource("2_py3j8")]
 
-[node name="Sector149" parent="Sectors" unique_id=1520811555 instance=ExtResource("2_py3j8")]
+[node name="Sector149" parent="Sectors" unique_id=1190547291 instance=ExtResource("2_py3j8")]
 
-[node name="Sector150" parent="Sectors" unique_id=1434559076 instance=ExtResource("2_py3j8")]
+[node name="Sector150" parent="Sectors" unique_id=2128169501 instance=ExtResource("2_py3j8")]
 
-[node name="Sector151" parent="Sectors" unique_id=1356001709 instance=ExtResource("2_py3j8")]
+[node name="Sector151" parent="Sectors" unique_id=1814463029 instance=ExtResource("2_py3j8")]
 
-[node name="Sector152" parent="Sectors" unique_id=413516897 instance=ExtResource("2_py3j8")]
+[node name="Sector152" parent="Sectors" unique_id=1293985684 instance=ExtResource("2_py3j8")]
 
-[node name="Sector153" parent="Sectors" unique_id=1556932231 instance=ExtResource("2_py3j8")]
+[node name="Sector153" parent="Sectors" unique_id=18312813 instance=ExtResource("2_py3j8")]
 
-[node name="Sector154" parent="Sectors" unique_id=1136436687 instance=ExtResource("2_py3j8")]
+[node name="Sector154" parent="Sectors" unique_id=1431096938 instance=ExtResource("2_py3j8")]
 
-[node name="Sector155" parent="Sectors" unique_id=1363457614 instance=ExtResource("2_py3j8")]
+[node name="Sector155" parent="Sectors" unique_id=1220288193 instance=ExtResource("2_py3j8")]
 
-[node name="Sector156" parent="Sectors" unique_id=1811537887 instance=ExtResource("2_py3j8")]
+[node name="Sector156" parent="Sectors" unique_id=1775077366 instance=ExtResource("2_py3j8")]
 
-[node name="Sector157" parent="Sectors" unique_id=539440865 instance=ExtResource("2_py3j8")]
+[node name="Sector157" parent="Sectors" unique_id=1753398291 instance=ExtResource("2_py3j8")]
 
-[node name="Sector158" parent="Sectors" unique_id=1784986507 instance=ExtResource("2_py3j8")]
+[node name="Sector158" parent="Sectors" unique_id=592468490 instance=ExtResource("2_py3j8")]
 
-[node name="Sector159" parent="Sectors" unique_id=1551184850 instance=ExtResource("2_py3j8")]
+[node name="Sector159" parent="Sectors" unique_id=907203918 instance=ExtResource("2_py3j8")]
 
-[node name="Sector160" parent="Sectors" unique_id=366783763 instance=ExtResource("2_py3j8")]
+[node name="Sector160" parent="Sectors" unique_id=1527372478 instance=ExtResource("2_py3j8")]
 
-[node name="Sector161" parent="Sectors" unique_id=833992354 instance=ExtResource("2_py3j8")]
+[node name="Sector161" parent="Sectors" unique_id=55345687 instance=ExtResource("2_py3j8")]
 
-[node name="Sector162" parent="Sectors" unique_id=375262886 instance=ExtResource("2_py3j8")]
+[node name="Sector162" parent="Sectors" unique_id=1422189810 instance=ExtResource("2_py3j8")]
 
-[node name="Sector163" parent="Sectors" unique_id=322661521 instance=ExtResource("2_py3j8")]
+[node name="Sector163" parent="Sectors" unique_id=441882185 instance=ExtResource("2_py3j8")]
 
-[node name="Sector164" parent="Sectors" unique_id=1758456026 instance=ExtResource("2_py3j8")]
+[node name="Sector164" parent="Sectors" unique_id=1479364668 instance=ExtResource("2_py3j8")]
 
-[node name="Sector165" parent="Sectors" unique_id=1825555296 instance=ExtResource("2_py3j8")]
+[node name="Sector165" parent="Sectors" unique_id=1392547451 instance=ExtResource("2_py3j8")]
 
-[node name="Sector166" parent="Sectors" unique_id=623620887 instance=ExtResource("2_py3j8")]
+[node name="Sector166" parent="Sectors" unique_id=1345425463 instance=ExtResource("2_py3j8")]
 
-[node name="Sector167" parent="Sectors" unique_id=1072185508 instance=ExtResource("2_py3j8")]
+[node name="Sector167" parent="Sectors" unique_id=1243316006 instance=ExtResource("2_py3j8")]
 
-[node name="Sector168" parent="Sectors" unique_id=1208210335 instance=ExtResource("2_py3j8")]
+[node name="Sector168" parent="Sectors" unique_id=1897247105 instance=ExtResource("2_py3j8")]
 
-[node name="Sector169" parent="Sectors" unique_id=280873841 instance=ExtResource("2_py3j8")]
+[node name="Sector169" parent="Sectors" unique_id=338866091 instance=ExtResource("2_py3j8")]
 
-[node name="Sector170" parent="Sectors" unique_id=1125535393 instance=ExtResource("2_py3j8")]
+[node name="Sector170" parent="Sectors" unique_id=2068932587 instance=ExtResource("2_py3j8")]
 
-[node name="Sector171" parent="Sectors" unique_id=1517299939 instance=ExtResource("2_py3j8")]
+[node name="Sector171" parent="Sectors" unique_id=913093780 instance=ExtResource("2_py3j8")]
 
-[node name="Sector172" parent="Sectors" unique_id=1391133921 instance=ExtResource("2_py3j8")]
+[node name="Sector172" parent="Sectors" unique_id=2007379192 instance=ExtResource("2_py3j8")]
 
-[node name="Sector173" parent="Sectors" unique_id=61649543 instance=ExtResource("2_py3j8")]
+[node name="Sector173" parent="Sectors" unique_id=288991435 instance=ExtResource("2_py3j8")]
 
-[node name="Sector174" parent="Sectors" unique_id=535267334 instance=ExtResource("2_py3j8")]
+[node name="Sector174" parent="Sectors" unique_id=440758450 instance=ExtResource("2_py3j8")]
 
-[node name="Sector175" parent="Sectors" unique_id=730436994 instance=ExtResource("2_py3j8")]
+[node name="Sector175" parent="Sectors" unique_id=1503720596 instance=ExtResource("2_py3j8")]
 
-[node name="Sector176" parent="Sectors" unique_id=1289170042 instance=ExtResource("2_py3j8")]
+[node name="Sector176" parent="Sectors" unique_id=1865809005 instance=ExtResource("2_py3j8")]
 
-[node name="Sector177" parent="Sectors" unique_id=1379729159 instance=ExtResource("2_py3j8")]
+[node name="Sector177" parent="Sectors" unique_id=1237446068 instance=ExtResource("2_py3j8")]
 
-[node name="Sector178" parent="Sectors" unique_id=1406643203 instance=ExtResource("2_py3j8")]
+[node name="Sector178" parent="Sectors" unique_id=547283142 instance=ExtResource("2_py3j8")]
 
-[node name="Sector179" parent="Sectors" unique_id=469606139 instance=ExtResource("2_py3j8")]
+[node name="Sector179" parent="Sectors" unique_id=1055564879 instance=ExtResource("2_py3j8")]
 
-[node name="Sector180" parent="Sectors" unique_id=2067790039 instance=ExtResource("2_py3j8")]
+[node name="Sector180" parent="Sectors" unique_id=1556052745 instance=ExtResource("2_py3j8")]
 
-[node name="Sector181" parent="Sectors" unique_id=866899897 instance=ExtResource("2_py3j8")]
+[node name="Sector181" parent="Sectors" unique_id=2061122679 instance=ExtResource("2_py3j8")]
 
-[node name="Sector182" parent="Sectors" unique_id=615804019 instance=ExtResource("2_py3j8")]
+[node name="Sector182" parent="Sectors" unique_id=1621157216 instance=ExtResource("2_py3j8")]
 
-[node name="Sector183" parent="Sectors" unique_id=678648296 instance=ExtResource("2_py3j8")]
+[node name="Sector183" parent="Sectors" unique_id=88314589 instance=ExtResource("2_py3j8")]
 
-[node name="Sector184" parent="Sectors" unique_id=1789794716 instance=ExtResource("2_py3j8")]
+[node name="Sector184" parent="Sectors" unique_id=1735256981 instance=ExtResource("2_py3j8")]
 
-[node name="Sector185" parent="Sectors" unique_id=1888705401 instance=ExtResource("2_py3j8")]
+[node name="Sector185" parent="Sectors" unique_id=2077126427 instance=ExtResource("2_py3j8")]
 
-[node name="Sector186" parent="Sectors" unique_id=328828263 instance=ExtResource("2_py3j8")]
+[node name="Sector186" parent="Sectors" unique_id=1969781335 instance=ExtResource("2_py3j8")]
 
-[node name="Sector187" parent="Sectors" unique_id=815717461 instance=ExtResource("2_py3j8")]
+[node name="Sector187" parent="Sectors" unique_id=1831237424 instance=ExtResource("2_py3j8")]
 
-[node name="Sector188" parent="Sectors" unique_id=2085021609 instance=ExtResource("2_py3j8")]
+[node name="Sector188" parent="Sectors" unique_id=67086868 instance=ExtResource("2_py3j8")]
 
-[node name="Sector189" parent="Sectors" unique_id=1694741037 instance=ExtResource("2_py3j8")]
+[node name="Sector189" parent="Sectors" unique_id=259572960 instance=ExtResource("2_py3j8")]
 
-[node name="Sector190" parent="Sectors" unique_id=352237060 instance=ExtResource("2_py3j8")]
+[node name="Sector190" parent="Sectors" unique_id=778418862 instance=ExtResource("2_py3j8")]
 
-[node name="Sector191" parent="Sectors" unique_id=2029048043 instance=ExtResource("2_py3j8")]
+[node name="Sector191" parent="Sectors" unique_id=1744164488 instance=ExtResource("2_py3j8")]
 
-[node name="Sector192" parent="Sectors" unique_id=773098913 instance=ExtResource("2_py3j8")]
+[node name="Sector192" parent="Sectors" unique_id=145738394 instance=ExtResource("2_py3j8")]
 
-[node name="Sector193" parent="Sectors" unique_id=1633218189 instance=ExtResource("2_py3j8")]
+[node name="Sector193" parent="Sectors" unique_id=661341737 instance=ExtResource("2_py3j8")]
 
-[node name="Sector194" parent="Sectors" unique_id=1532723141 instance=ExtResource("2_py3j8")]
+[node name="Sector194" parent="Sectors" unique_id=1569614622 instance=ExtResource("2_py3j8")]
 
-[node name="Sector195" parent="Sectors" unique_id=1017328337 instance=ExtResource("2_py3j8")]
+[node name="Sector195" parent="Sectors" unique_id=852709855 instance=ExtResource("2_py3j8")]
 
-[node name="Sector196" parent="Sectors" unique_id=942472119 instance=ExtResource("2_py3j8")]
+[node name="Sector196" parent="Sectors" unique_id=141069305 instance=ExtResource("2_py3j8")]
 
-[node name="Sector197" parent="Sectors" unique_id=1598073341 instance=ExtResource("2_py3j8")]
+[node name="Sector197" parent="Sectors" unique_id=50626844 instance=ExtResource("2_py3j8")]
 
-[node name="Sector198" parent="Sectors" unique_id=2011962271 instance=ExtResource("2_py3j8")]
+[node name="Sector198" parent="Sectors" unique_id=1270842191 instance=ExtResource("2_py3j8")]
 
-[node name="Sector199" parent="Sectors" unique_id=11212974 instance=ExtResource("2_py3j8")]
-
-[editable path="Sectors/Sector1"]
+[node name="Sector199" parent="Sectors" unique_id=427792778 instance=ExtResource("2_py3j8")]
