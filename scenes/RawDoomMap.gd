@@ -42,10 +42,10 @@ class DoomSubsector:
 	# TODO: add CW/CCW check
 	func get_polygon(map: RawDoomMap) -> PackedVector2Array:
 		if segmentCount == 1: return PackedVector2Array()
-		
 		var assemblePolygon: Array = []
 		
 		var segmentSliceArray: Array = map.segs.slice(segmentNumber, segmentNumber+segmentCount)
+		if segmentCount == 2: return [segmentSliceArray[0].v1, segmentSliceArray[0].v2, segmentSliceArray[1].v2, segmentSliceArray[0].v1]
 		print(segmentSliceArray.map(func(e): return e.get_line(map)))
 		assemblePolygon.append(segmentSliceArray[0].v1)
 		assemblePolygon.append(segmentSliceArray[0].v2)
@@ -54,9 +54,10 @@ class DoomSubsector:
 		var searchVert: int = assemblePolygon.back()
 		while searchVert != -1:
 			var holdVert = searchVert
+			
 			searchVert = -1
 			for segmentInd: int in segmentSliceArray.size():
-				var seg: DoomSegment = map.segs[segmentInd]
+				var seg: DoomSegment = segmentSliceArray[segmentInd]
 				if seg.v1 == holdVert:
 					searchVert = seg.v2
 					assemblePolygon.append(seg.v2)
@@ -67,7 +68,9 @@ class DoomSubsector:
 					#assemblePolygon.append(seg.v1)
 					#segmentSliceArray.pop_at(segmentInd)
 					#break
-		assemblePolygon.append(assemblePolygon.front())
+			#print()
+		if assemblePolygon.back() != assemblePolygon.front():
+			assemblePolygon.append(assemblePolygon.front())
 		
 		print(assemblePolygon)
 		var returnPoly: PackedVector2Array = PackedVector2Array(assemblePolygon.map(func(e): return map.vertexes[e]))

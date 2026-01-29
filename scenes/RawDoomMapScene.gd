@@ -5,4 +5,4 @@ var doomWAD: DoomWAD
 
 func _ready() -> void:
 	doomWAD = DoomWAD.get_doom_wad(Globals.wadPath)
-	mapGeometry.initialize_geometry(doomWAD.get_map("E1M1"))
+	mapGeometry.initialize_geometry(doomWAD.get_map("E1M2"))

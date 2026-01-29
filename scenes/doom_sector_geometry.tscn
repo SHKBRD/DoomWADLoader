@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://6gamirf1qb6g"]
 
 [ext_resource type="Script" uid="uid://b8fjhqvti6b6o" path="res://scenes/doom_sector_geometry.gd" id="1_uccwk"]
+[ext_resource type="Material" uid="uid://b4khladej5hu7" path="res://test/testmat.tres" id="2_2k5uv"]
 
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_uccwk"]
 
@@ -15,10 +16,13 @@ floorMesh = NodePath("FloorMesh")
 wallMesh = NodePath("WallMesh")
 
 [node name="CeilingMesh" type="MeshInstance3D" parent="." unique_id=493911046]
+material_override = ExtResource("2_2k5uv")
 mesh = SubResource("ImmediateMesh_uccwk")
 
 [node name="FloorMesh" type="MeshInstance3D" parent="." unique_id=2045781148]
+material_override = ExtResource("2_2k5uv")
 mesh = SubResource("ImmediateMesh_2k5uv")
 
 [node name="WallMesh" type="MeshInstance3D" parent="." unique_id=183030573]
+material_override = ExtResource("2_2k5uv")
 mesh = SubResource("ImmediateMesh_tbr7o")

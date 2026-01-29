@@ -34,7 +34,7 @@ func add_polygon_to_ceil(tridPoly: PackedVector3Array) -> void:
 		polyPoint.y = ceilHeight
 		ceilMesh.mesh.surface_set_normal(Vector3.DOWN)
 		ceilMesh.mesh.surface_set_uv(Vector2.ZERO)
-		ceilMesh.mesh.surface_add_vertex(polyPoint/100.0)
+		ceilMesh.mesh.surface_add_vertex(polyPoint)
 
 func add_polygon_to_floor(tridPoly: PackedVector3Array) -> void:
 	var revPoly: PackedVector3Array = tridPoly.duplicate()
@@ -43,7 +43,7 @@ func add_polygon_to_floor(tridPoly: PackedVector3Array) -> void:
 		polyPoint.y = floorHeight
 		floorMesh.mesh.surface_set_normal(Vector3.UP)
 		floorMesh.mesh.surface_set_uv(Vector2.ZERO)
-		floorMesh.mesh.surface_add_vertex(polyPoint/100.0)
+		floorMesh.mesh.surface_add_vertex(polyPoint)
 
 func build_sector_meshes(map: RawDoomMap) -> void:
 	ceilMesh.mesh.clear_surfaces()
