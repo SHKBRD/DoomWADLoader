@@ -46,10 +46,10 @@ class DoomSubsector:
 		
 		var segmentSliceArray: Array = map.segs.slice(segmentNumber, segmentNumber+segmentCount)
 		if segmentCount == 2: return [segmentSliceArray[0].v1, segmentSliceArray[0].v2, segmentSliceArray[1].v2, segmentSliceArray[0].v1]
-		print(segmentSliceArray.map(func(e): return e.get_line(map)))
+		#print(segmentSliceArray.map(func(e): return e.get_line(map)))
 		assemblePolygon.append(segmentSliceArray[0].v1)
 		assemblePolygon.append(segmentSliceArray[0].v2)
-		print(assemblePolygon)
+		#print(assemblePolygon)
 		segmentSliceArray.pop_at(0)
 		var searchVert: int = assemblePolygon.back()
 		while searchVert != -1:
@@ -72,7 +72,7 @@ class DoomSubsector:
 		if assemblePolygon.back() != assemblePolygon.front():
 			assemblePolygon.append(assemblePolygon.front())
 		
-		print(assemblePolygon)
+		#print(assemblePolygon)
 		var returnPoly: PackedVector2Array = PackedVector2Array(assemblePolygon.map(func(e): return map.vertexes[e]))
 		return returnPoly
 

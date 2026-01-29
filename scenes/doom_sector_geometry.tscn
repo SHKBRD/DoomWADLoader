@@ -3,26 +3,27 @@
 [ext_resource type="Script" uid="uid://b8fjhqvti6b6o" path="res://scenes/doom_sector_geometry.gd" id="1_uccwk"]
 [ext_resource type="Material" uid="uid://b4khladej5hu7" path="res://test/testmat.tres" id="2_2k5uv"]
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_uccwk"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_2k5uv"]
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_2k5uv"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_tbr7o"]
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_tbr7o"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_cc5ue"]
 
 [node name="DoomSectorGeometry" type="Node3D" unique_id=556695634 node_paths=PackedStringArray("ceilMesh", "floorMesh", "wallMesh")]
 script = ExtResource("1_uccwk")
 ceilMesh = NodePath("CeilingMesh")
 floorMesh = NodePath("FloorMesh")
 wallMesh = NodePath("WallMesh")
+testmat = ExtResource("2_2k5uv")
 
 [node name="CeilingMesh" type="MeshInstance3D" parent="." unique_id=493911046]
 material_override = ExtResource("2_2k5uv")
-mesh = SubResource("ImmediateMesh_uccwk")
+mesh = SubResource("ArrayMesh_2k5uv")
 
 [node name="FloorMesh" type="MeshInstance3D" parent="." unique_id=2045781148]
 material_override = ExtResource("2_2k5uv")
-mesh = SubResource("ImmediateMesh_2k5uv")
+mesh = SubResource("ArrayMesh_tbr7o")
 
 [node name="WallMesh" type="MeshInstance3D" parent="." unique_id=183030573]
 material_override = ExtResource("2_2k5uv")
-mesh = SubResource("ImmediateMesh_tbr7o")
+mesh = SubResource("ArrayMesh_cc5ue")

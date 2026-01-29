@@ -4,7 +4,9 @@ extends Node3D
 @export var ceilMesh: MeshInstance3D
 @export var floorMesh: MeshInstance3D
 @export var wallMesh: MeshInstance3D
+@export var testmat: StandardMaterial3D
 
+var map: RawDoomMap
 var sectorId: int
 
 var ceilHeight: float
@@ -21,6 +23,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func init_sector(map: RawDoomMap, rawSector: RawDoomMap.DoomSector, sectorId: int) -> void:
+	self.map = map
 	self.sectorId = sectorId
 	ceilHeight = rawSector.ceilingHeight
 	floorHeight = rawSector.floorHeight
@@ -29,14 +32,14 @@ func init_sector(map: RawDoomMap, rawSector: RawDoomMap.DoomSector, sectorId: in
 	lightLevel = rawSector.lightLevel
 	build_sector_meshes(map)
 
-func add_polygon_to_ceil(tridPoly: PackedVector3Array) -> void:
+func add_polygon_to_ceil(tridPoly: PackedVector3Array, surfArray: Array) -> void:
 	for polyPoint: Vector3 in tridPoly:
 		polyPoint.y = ceilHeight
-		ceilMesh.mesh.surface_set_normal(Vector3.DOWN)
+		surfArray[Mesh.ARRAY_NORMAL].append(Vector3.DOWN)
 		ceilMesh.mesh.surface_set_uv(Vector2.ZERO)
 		ceilMesh.mesh.surface_add_vertex(polyPoint)
 
-func add_polygon_to_floor(tridPoly: PackedVector3Array) -> void:
+func add_polygon_to_floor(tridPoly: PackedVector3Array, surfArray: Array) -> void:
 	var revPoly: PackedVector3Array = tridPoly.duplicate()
 	revPoly.reverse()
 	for polyPoint: Vector3 in revPoly:
@@ -48,28 +51,37 @@ func add_polygon_to_floor(tridPoly: PackedVector3Array) -> void:
 func build_sector_meshes(map: RawDoomMap) -> void:
 	ceilMesh.mesh.clear_surfaces()
 	floorMesh.mesh.clear_surfaces()
-	ceilMesh.mesh.surface_begin(Mesh.PRIMITIVE_TRIANGLES)
-	floorMesh.mesh.surface_begin(Mesh.PRIMITIVE_TRIANGLES)
+	ceilMesh.mesh.surface_begin(Mesh.PRIMITIVE_TRIANGLES, testmat)
+	floorMesh.mesh.surface_begin(Mesh.PRIMITIVE_TRIANGLES, testmat)
+	
+	var ceilSurfaceArray: Array = []
+	ceilSurfaceArray.resize(Mesh.ARRAY_MAX)
+	ceilSurfaceArray[Mesh.ARRAY_VERTEX] = PackedVector3Array()
+	ceilSurfaceArray[Mesh.ARRAY_TEX_UV] = PackedVector2Array()
+	ceilSurfaceArray[Mesh.ARRAY_NORMAL] = PackedVector3Array()
+	ceilSurfaceArray[Mesh.ARRAY_INDEX] = PackedInt32Array()
+	var floorSurfaceArray = ceilSurfaceArray.duplicate(true)
 	
 	var subsectors: Array = map.sectors[sectorId].associatedSubsectors
 	
-	print()
-	print("Sector " + str(sectorId))
+	#print()
+	#print("Sector " + str(sectorId))
 	for subsectorInd: int in subsectors:
 		var subsector: RawDoomMap.DoomSubsector = map.ssectors[subsectorInd]
 		var polygonPoints: PackedVector2Array = subsector.get_polygon(map)
 		if polygonPoints.is_empty(): continue
-		if polygonPoints[0] != polygonPoints[polygonPoints.size()-1]:
-			print("ERR (" + str(subsectorInd) + "): " + str(polygonPoints))
+		#zzz
+		#if polygonPoints[0] != polygonPoints[polygonPoints.size()-1]:
+			#print("ERR (" + str(subsectorInd) + "): " + str(polygonPoints))
 		var triangulatedPoly: Array = Array(Geometry2D.triangulate_polygon(polygonPoints)).map(func(i): return polygonPoints[i])
 		var heightedPoly: PackedVector3Array = PackedVector3Array(triangulatedPoly.map(func(v): return Vector3(v.x, 0, v.y)))
-		add_polygon_to_ceil(heightedPoly)
-		add_polygon_to_floor(heightedPoly)
+		add_polygon_to_ceil(heightedPoly, ceilSurfaceArray)
+		add_polygon_to_floor(heightedPoly, floorSurfaceArray)
 	
-	ceilMesh.mesh.surface_end()
-	floorMesh.mesh.surface_end()
+	ceilMesh.mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, ceilSurfaceArray)
+	floorMesh.mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, floorSurfaceArray)
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	build_sector_meshes(map)
