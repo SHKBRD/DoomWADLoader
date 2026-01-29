@@ -37,6 +37,8 @@ func init_sector(map: RawDoomMap, rawSector: RawDoomMap.DoomSector, sectorId: in
 	build_sector_meshes(map)
 
 func add_polygon_to_ceil(tridPoly: PackedVector3Array, surfArray: Array) -> void:
+	if not Geometry2D.is_polygon_clockwise(Array(tridPoly).map(func(v): return Vector2(v.x, v.z))):
+		tridPoly.reverse()
 	for polyPoint: Vector3 in tridPoly:
 		polyPoint.y = ceilHeight
 		surfArray[Mesh.ARRAY_NORMAL].append(Vector3.DOWN)
@@ -44,6 +46,8 @@ func add_polygon_to_ceil(tridPoly: PackedVector3Array, surfArray: Array) -> void
 		surfArray[Mesh.ARRAY_VERTEX].append(polyPoint/100.0)
 
 func add_polygon_to_floor(tridPoly: PackedVector3Array, surfArray: Array) -> void:
+	if not Geometry2D.is_polygon_clockwise(Array(tridPoly).map(func(v): return Vector2(v.x, v.z))):
+		tridPoly.reverse()
 	var revPoly: PackedVector3Array = tridPoly.duplicate()
 	revPoly.reverse()
 	for polyPoint: Vector3 in revPoly:
@@ -65,8 +69,8 @@ func build_sector_meshes(map: RawDoomMap) -> void:
 	
 	var subsectors: Array = map.sectors[sectorId].associatedSubsectors
 	
-	#print()
-	#print("Sector " + str(sectorId))
+	print()
+	print("Sector " + str(sectorId))
 	for subsectorInd: int in subsectors:
 		var subsector: RawDoomMap.DoomSubsector = map.ssectors[subsectorInd]
 		var polygonPoints: PackedVector2Array = subsector.get_polygon(map)
