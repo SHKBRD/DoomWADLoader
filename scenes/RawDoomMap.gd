@@ -48,6 +48,7 @@ class DoomSubsector:
 		if segmentCount == 2: return [segmentSliceArray[0].v1, segmentSliceArray[0].v2, segmentSliceArray[1].v2, segmentSliceArray[0].v1]
 		if segmentCount == 3: return [segmentSliceArray[0].v1, segmentSliceArray[0].v2, segmentSliceArray[1].v2, segmentSliceArray[2].v2, segmentSliceArray[0].v1]
 		print(segmentSliceArray.map(func(e): return e.get_line(map)))
+		print()
 		assemblePolygon.append(segmentSliceArray[0].v1)
 		assemblePolygon.append(segmentSliceArray[0].v2)
 		#print(assemblePolygon)
@@ -70,10 +71,26 @@ class DoomSubsector:
 					#segmentSliceArray.pop_at(segmentInd)
 					#break
 			#print()
+		while segmentSliceArray.size() != 0:
+			var segFound: bool = false
+			for segInd: int in segmentSliceArray.size():
+				var seg: DoomSegment = segmentSliceArray[segInd]
+				if seg.v1 == assemblePolygon.front():
+					assemblePolygon.push_front(seg.v2)
+					segmentSliceArray.pop_at(segInd)
+					segFound = true
+					break
+				if seg.v2 == assemblePolygon.front():
+					assemblePolygon.push_front(seg.v1)
+					segmentSliceArray.pop_at(segInd)
+					segFound = true
+					break
+			if not segFound: break
 		if assemblePolygon.back() != assemblePolygon.front():
 			assemblePolygon.append(assemblePolygon.front())
 		
 		print(assemblePolygon)
+		print(assemblePolygon.map(func(vi): return map.vertexes[vi]))
 		print()
 		var returnPoly: PackedVector2Array = PackedVector2Array(assemblePolygon.map(func(e): return map.vertexes[e]))
 		return returnPoly
@@ -277,6 +294,8 @@ static func link_sectors_to_linedefs(map: RawDoomMap) -> void:
 
 static func link_ssectors_to_sectors(map: RawDoomMap) -> void:
 	for ssectorInd: int in map.ssectors.size():
+		if ssectorInd == 372:
+			pass
 		var ssector: DoomSubsector = map.ssectors[ssectorInd]
 		
 		var assocLinedef: DoomLineDef = map.lineDefs[map.segs[ssector.segmentNumber].lineDefInd]

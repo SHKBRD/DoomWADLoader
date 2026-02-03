@@ -37,8 +37,6 @@ func init_sector(map: RawDoomMap, rawSector: RawDoomMap.DoomSector, sectorId: in
 	build_sector_meshes(map)
 
 func add_polygon_to_ceil(tridPoly: PackedVector3Array, surfArray: Array) -> void:
-	if not Geometry2D.is_polygon_clockwise(Array(tridPoly).map(func(v): return Vector2(v.x, v.z))):
-		tridPoly.reverse()
 	for polyPoint: Vector3 in tridPoly:
 		polyPoint.y = ceilHeight
 		surfArray[Mesh.ARRAY_NORMAL].append(Vector3.DOWN)
@@ -46,8 +44,6 @@ func add_polygon_to_ceil(tridPoly: PackedVector3Array, surfArray: Array) -> void
 		surfArray[Mesh.ARRAY_VERTEX].append(polyPoint/100.0)
 
 func add_polygon_to_floor(tridPoly: PackedVector3Array, surfArray: Array) -> void:
-	if not Geometry2D.is_polygon_clockwise(Array(tridPoly).map(func(v): return Vector2(v.x, v.z))):
-		tridPoly.reverse()
 	var revPoly: PackedVector3Array = tridPoly.duplicate()
 	revPoly.reverse()
 	for polyPoint: Vector3 in revPoly:
@@ -71,16 +67,21 @@ func build_sector_meshes(map: RawDoomMap) -> void:
 	
 	print()
 	print("Sector " + str(sectorId))
+	print("SSectors: " + str(subsectors))
 	for subsectorInd: int in subsectors:
+		if subsectorInd == 422:
+			pass
 		var subsector: RawDoomMap.DoomSubsector = map.ssectors[subsectorInd]
 		var polygonPoints: PackedVector2Array = subsector.get_polygon(map)
 		if polygonPoints.is_empty(): continue
+		if not Geometry2D.is_polygon_clockwise(polygonPoints):
+			polygonPoints.reverse()
 		#zzz
 		#if polygonPoints[0] != polygonPoints[polygonPoints.size()-1]:
 			#print("ERR (" + str(subsectorInd) + "): " + str(polygonPoints))
 		var triangulatedPoly: Array = Array(Geometry2D.triangulate_polygon(polygonPoints)).map(func(i): return polygonPoints[i])
 		#print(triangulatedPoly)
-		var heightedPoly: PackedVector3Array = PackedVector3Array(triangulatedPoly.map(func(v): return Vector3(v.x, 0, v.y)))
+		var heightedPoly: PackedVector3Array = PackedVector3Array(triangulatedPoly.map(func(v): return Vector3(v.x, 0, -v.y)))
 		add_polygon_to_ceil(heightedPoly, ceilSurfaceArray)
 		add_polygon_to_floor(heightedPoly, floorSurfaceArray)
 	
